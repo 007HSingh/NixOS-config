@@ -220,6 +220,12 @@
     tlrc
     spotify
     gh
+    swaylock
+    swayidle
+    cava
+    man-pages
+    nix-index
+    xdg-utils
   ];
 
   nix = {

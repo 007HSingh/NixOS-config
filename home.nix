@@ -11,6 +11,25 @@
     cursors.enable = true;
   };
 
+  programs.git = {
+    userName = "Harsh Singh";
+    userEmail = "singhharsh25032008@gmail.com";
+
+    extraConfig = {
+      init.defaultBranch = "main";
+      pull.rebase = false;
+      core.editor = "nvim";
+    };
+
+    aliases = {
+      st = "status";
+      co = "checkout";
+      br = "branch";
+      ci = "commit";
+      lg = "log --oneline --graph --decorate";
+    };
+  };
+
   home.file = {
     ".config/wezterm/wezterm.lua".source = ./config/wezterm/wezterm.lua;
     ".config/nvim/init.lua".source = ./config/nvim/init.lua;
@@ -21,6 +40,7 @@
     ".config/hypr/hyprpaper.conf".source = ./config/hyprland/hyprpaper.conf;
     ".config/wofi/config/config".source = ./config/wofi/config;
     ".config/wofi/src/mocha/style.css".source = ./config/wofi/style.css;
+    ".config/dunst/dunstrc".source = ./config/dunst/dunstrc;
   };
 
   home.sessionVariables = {
