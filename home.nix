@@ -9,6 +9,7 @@
 
   catppuccin = {
     cursors.enable = true;
+    fzf.enable = true;
   };
 
   programs.git = {
