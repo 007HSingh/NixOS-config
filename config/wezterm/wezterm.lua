@@ -27,8 +27,8 @@ config.font = wezterm.font_with_fallback({
 	{ family = "MesloLGS Nerd Font", weight = "Regular" },
 	"Noto Color Emoji", -- Emoji support
 })
-config.font_size = 11.0
-config.line_height = 1.2 -- Comfortable spacing
+config.font_size = 11.5
+config.line_height = 1.25 -- Comfortable spacing
 config.harfbuzz_features = { "calt=1", "clig=1", "liga=1" } -- Enable ligatures
 
 -- ============================================================================
@@ -53,7 +53,7 @@ config.tab_max_width = 32
 -- ============================================================================
 
 config.default_cursor_style = "BlinkingBlock"
-config.cursor_blink_rate = 700
+config.cursor_blink_rate = 600
 config.cursor_thickness = "2px"
 
 -- ============================================================================
@@ -62,8 +62,8 @@ config.cursor_thickness = "2px"
 
 config.scrollback_lines = 10000
 config.enable_scroll_bar = false
-config.animation_fps = 60
-config.max_fps = 60
+config.animation_fps = 165
+config.max_fps = 165
 
 -- ============================================================================
 -- BEHAVIOR & UX
@@ -127,6 +127,14 @@ config.inactive_pane_hsb = {
 	saturation = 0.8,
 	brightness = 0.7,
 }
+
+-- ============================================================================
+-- PERFORMANCE + ANIMATION TUNING
+-- ============================================================================
+config.front_end = "WebGpu"
+config.enable_wayland = true
+config.cursor_blink_ease_in = "EaseInOut"
+config.cursor_blink_ease_out = "EaseInOut"
 
 -- ============================================================================
 -- CONFIGURATION SUMMARY
