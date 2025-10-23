@@ -242,9 +242,6 @@
     packages = with pkgs; [
       nerd-fonts.jetbrains-mono
       nerd-fonts.fira-code
-      nerd-fonts.hack
-      nerd-fonts.iosevka
-      nerd-fonts.caskaydia-cove
       nerd-fonts.meslo-lg
     ];
 
