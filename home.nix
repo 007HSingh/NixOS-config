@@ -44,10 +44,6 @@
     ".config/dunst/dunstrc".source = ./config/dunst/dunstrc;
   };
 
-  home.packages = [
-    pkgs.devenv
-  ];
-
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
