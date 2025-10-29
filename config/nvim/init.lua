@@ -375,7 +375,7 @@ lint.linters_by_ft = {
 	python = { "flake8", "mypy" },
 	java = { "checkstyle" },
 	lua = { "luacheck" },
-	c = { "clang-tidy" },
+	c = { "clangtidy" },
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
