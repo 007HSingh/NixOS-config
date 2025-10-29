@@ -358,6 +358,7 @@ require("conform").setup({
 		java = { "google-java-format" },
 		lua = { "stylua" },
 		nix = { "nixfmt" },
+		c = { "clang-format" },
 	},
 	format_on_save = {
 		timeout_ms = 500,
@@ -374,6 +375,7 @@ lint.linters_by_ft = {
 	python = { "flake8", "mypy" },
 	java = { "checkstyle" },
 	lua = { "luacheck" },
+	c = { "clang-tidy" },
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
@@ -510,6 +512,11 @@ require("lspconfig").nil_ls.setup({
 			},
 		},
 	},
+})
+
+require("lspconfig").clangd.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
 })
 
 -- ============================================================================
