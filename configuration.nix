@@ -226,6 +226,7 @@
     man-pages
     nix-index
     xdg-utils
+    clang-tools
   ];
 
   nix = {
