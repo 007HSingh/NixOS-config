@@ -42,32 +42,6 @@
     ".config/wofi/config/config".source = ./config/wofi/config;
     ".config/wofi/src/mocha/style.css".source = ./config/wofi/style.css;
     ".config/dunst/dunstrc".source = ./config/dunst/dunstrc;
-    ".config/wlogout/layout".text = ''
-      {
-        "label" : "lock",
-        "action" : "swaylock",
-        "text" : "Lock",
-        "keybind" : "l"
-      }
-      {
-        "label" : "logout",
-        "action" : "hyprctl dispatch exit",
-        "text" : "Logout",
-        "keybind" : "e"
-      }
-      {
-        "label" : "shutdown",
-        "action" : "systemctl poweroff",
-        "text" : "Shutdown",
-        "keybind" : "s"
-      }
-      {
-        "label" : "reboot",
-        "action" : "systemctl reboot",
-        "text" : "Reboot",
-        "keybind" : "r"
-      }
-    '';
   };
 
   home.sessionVariables = {
