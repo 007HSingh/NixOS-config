@@ -229,6 +229,7 @@
     clang-tools
     vscode-fhs
     gnumake
+    nodePackages.prettier
   ];
 
   nix = {
