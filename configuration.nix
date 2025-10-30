@@ -227,6 +227,7 @@
     nix-index
     xdg-utils
     clang-tools
+    vscode-fhs
   ];
 
   nix = {
