@@ -228,6 +228,7 @@
     xdg-utils
     clang-tools
     vscode-fhs
+    gnumake
   ];
 
   nix = {
