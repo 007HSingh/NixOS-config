@@ -231,6 +231,7 @@
     gnumake
     nodePackages.prettier
     jq
+    jetbrains.idea-ultimate
   ];
 
   nix = {
