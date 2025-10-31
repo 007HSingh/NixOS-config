@@ -43,7 +43,10 @@
     ".config/wofi/src/mocha/style.css".source = ./config/wofi/style.css;
     ".config/dunst/dunstrc".source = ./config/dunst/dunstrc;
     ".config/wlogout/layout".source = ./config/wlogout/layout;
-    ".config/swaylock/config".source = ./config/swaylock/config;
+    ".config/hypr/hyprlock.conf".source = ./config/hyprland/hyprlock.conf;
+    ".config/hypr/hypridle.conf".source = ./config/hyprland/hypridle.conf;
+    ".config/hypr/scripts/check-caps.sh".source = ./config/hyprland/scripts/check-caps.sh;
+    ".config/hypr/scripts/battery-status.sh".source = ./config/hyprland/scripts/battery-status.sh;
   };
 
   home.sessionVariables = {
