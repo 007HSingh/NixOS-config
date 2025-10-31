@@ -230,6 +230,7 @@
     vscode-fhs
     gnumake
     nodePackages.prettier
+    jq
   ];
 
   nix = {
