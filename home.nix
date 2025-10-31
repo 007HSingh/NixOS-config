@@ -42,6 +42,8 @@
     ".config/wofi/config/config".source = ./config/wofi/config;
     ".config/wofi/src/mocha/style.css".source = ./config/wofi/style.css;
     ".config/dunst/dunstrc".source = ./config/dunst/dunstrc;
+    ".config/wlogout/layout".source = ./config/wlogout/layout;
+    ".config/swaylock/config".source = ./config/swaylock/config;
   };
 
   home.sessionVariables = {
