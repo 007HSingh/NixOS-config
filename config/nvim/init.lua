@@ -1,8 +1,8 @@
 -- ============================================================================
--- NEOVIM CONFIGURATION (Enhanced Version)
+-- NEOVIM CONFIGURATION
 -- ============================================================================
 -- Author: Harsh Singh
--- Last Updated: 2024
+-- Last Updated: Oct, 2025
 -- Neovim Version: 0.10+
 -- Purpose: Modern development environment with LSP, formatting, and productivity tools
 -- Languages: Python, Java, Lua, Nix, C
