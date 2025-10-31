@@ -781,10 +781,17 @@ end
 require("dap-python").setup("python3")
 
 -- DAP Signs
-vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
-vim.fn.sign_define("DapBreakpointCondition", { text = "🟡", texthl = "", linehl = "", numhl = "" })
-vim.fn.sign_define("DapBreakpointRejected", { text = "🚫", texthl = "", linehl = "", numhl = "" })
-vim.fn.sign_define("DapStopped", { text = "➡️", texthl = "", linehl = "", numhl = "" })
+local signs = {
+	DapBreakpoint = { text = "🔴", texthl = "", linehl = "", numhl = "" },
+	DapBreakpointCondition = { text = "🟡", texthl = "", linehl = "", numhl = "" },
+	DapBreakpointRejected = { text = "🚫", texthl = "", linehl = "", numhl = "" },
+	DapStopped = { text = "➡️", texthl = "", linehl = "", numhl = "" },
+}
+
+for name, opts in pairs(signs) do
+	vim.api.nvim_set_hl(0, name, { default = true })
+	vim.fn.sign_define(name, opts)
+end
 
 -- ============================================================================
 -- NEOTEST CONFIGURATION
