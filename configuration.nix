@@ -220,8 +220,8 @@
     tlrc
     spotify
     gh
-    swaylock
-    swayidle
+    hyprlock
+    hypridle
     cava
     man-pages
     nix-index
