@@ -232,6 +232,9 @@
     nodePackages.prettier
     jq
     jetbrains.idea-ultimate
+    lazygit
+    python313Packages.pytest_7
+    gdb
   ];
 
   nix = {

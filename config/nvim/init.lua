@@ -1,10 +1,10 @@
 -- ============================================================================
--- NEOVIM CONFIGURATION
+-- NEOVIM CONFIGURATION (Ultimate Enhanced Edition)
 -- ============================================================================
 -- Author: Harsh Singh
 -- Last Updated: Oct, 2025
 -- Neovim Version: 0.10+
--- Purpose: Modern development environment with LSP, formatting, and productivity tools
+-- Purpose: Modern development environment with LSP, DAP, Testing, and more
 -- Languages: Python, Java, Lua, Nix, C
 -- Theme: Catppuccin Mocha
 -- Management: Lazy.nvim for plugins, NixOS for LSP/formatters/linters
@@ -73,7 +73,7 @@ vim.opt.incsearch = true
 
 -- UI & Behavior
 vim.opt.mouse = "a"
-vim.opt.clipboard = "unnamedplus" -- System clipboard
+vim.opt.clipboard = "unnamedplus"
 vim.opt.timeoutlen = 300
 vim.opt.updatetime = 250
 vim.opt.signcolumn = "yes"
@@ -84,7 +84,7 @@ vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
-vim.opt.showmode = false -- Lualine shows mode
+vim.opt.showmode = false
 
 -- File Handling
 vim.opt.swapfile = false
@@ -129,7 +129,7 @@ require("lazy").setup({
 	-- ========================================
 
 	{ "neovim/nvim-lspconfig" },
-	{ "folke/lazydev.nvim", ft = "lua", opts = {} }, -- Better Lua LSP support
+	{ "folke/lazydev.nvim", ft = "lua", opts = {} },
 
 	-- ========================================
 	-- CODE FORMATTING & LINTING
@@ -156,6 +156,49 @@ require("lazy").setup({
 	},
 
 	-- ========================================
+	-- DEBUGGING (DAP - Debug Adapter Protocol)
+	-- ========================================
+
+	{
+		"mfussenegger/nvim-dap",
+		dependencies = {
+			"rcarriga/nvim-dap-ui",
+			"nvim-neotest/nvim-nio",
+			"theHamsta/nvim-dap-virtual-text",
+			"mfussenegger/nvim-dap-python",
+		},
+	},
+
+	-- ========================================
+	-- TESTING
+	-- ========================================
+
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-neotest/nvim-nio",
+			"nvim-neotest/neotest-python",
+			"nvim-neotest/neotest-plenary",
+		},
+	},
+
+	-- ========================================
+	-- PROJECT MANAGEMENT
+	-- ========================================
+
+	{
+		"ahmedkhalf/project.nvim",
+		config = function()
+			require("project_nvim").setup({
+				detection_methods = { "pattern", "lsp" },
+				patterns = { ".git", "Makefile", "package.json", "pom.xml", "flake.nix" },
+			})
+		end,
+	},
+
+	-- ========================================
 	-- UI & VISUAL ENHANCEMENTS
 	-- ========================================
 
@@ -176,6 +219,8 @@ require("lazy").setup({
 				mini = { enabled = true },
 				telescope = { enabled = true },
 				which_key = true,
+				dap = { enabled = true, enable_ui = true },
+				neotest = true,
 				indent_blankline = {
 					enabled = true,
 					colored_indent_levels = false,
@@ -216,7 +261,6 @@ require("lazy").setup({
 		cmd = { "NvimTreeToggle", "NvimTreeFocus" },
 	},
 
-	-- Better buffer management
 	{
 		"akinsho/bufferline.nvim",
 		version = "*",
@@ -230,6 +274,21 @@ require("lazy").setup({
 	{ "lewis6991/gitsigns.nvim", event = "BufReadPre" },
 	{ "tpope/vim-fugitive", cmd = { "Git", "G" } },
 	{ "sindrets/diffview.nvim", cmd = { "DiffviewOpen", "DiffviewFileHistory" } },
+
+	-- LazyGit Integration
+	{
+		"kdheepak/lazygit.nvim",
+		cmd = {
+			"LazyGit",
+			"LazyGitConfig",
+			"LazyGitCurrentFile",
+			"LazyGitFilter",
+			"LazyGitFilterCurrentFile",
+		},
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+	},
 
 	-- ========================================
 	-- TERMINAL & DEVELOPMENT WORKFLOW
@@ -274,7 +333,6 @@ require("lazy").setup({
 		},
 	},
 
-	-- Better f/F/t/T motions
 	{
 		"folke/zen-mode.nvim",
 		cmd = "ZenMode",
@@ -308,7 +366,6 @@ require("lazy").setup({
 	{ "numToStr/Comment.nvim", event = "VeryLazy" },
 	{ "kylechui/nvim-surround", event = "VeryLazy", config = true },
 
-	-- Better code structure view
 	{
 		"stevearc/aerial.nvim",
 		cmd = { "AerialToggle", "AerialOpen" },
@@ -322,14 +379,12 @@ require("lazy").setup({
 		},
 	},
 
-	-- Session management
 	{
 		"folke/persistence.nvim",
 		event = "BufReadPre",
 		opts = {},
 	},
 
-	-- Markdown preview
 	{
 		"iamcco/markdown-preview.nvim",
 		build = "cd app && npm install",
@@ -355,8 +410,8 @@ require("lazy").setup({
 		"echasnovski/mini.nvim",
 		version = false,
 		config = function()
-			require("mini.ai").setup() -- Better text objects
-			require("mini.move").setup() -- Move lines/selections
+			require("mini.ai").setup()
+			require("mini.move").setup()
 		end,
 	},
 }, {
@@ -410,8 +465,8 @@ require("telescope").setup({
 	},
 })
 
--- Load extensions
 pcall(require("telescope").load_extension, "fzf")
+pcall(require("telescope").load_extension, "projects")
 
 -- ============================================================================
 -- CODE FORMATTING CONFIGURATION
@@ -510,7 +565,6 @@ require("treesitter-context").setup({
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 
--- Load friendly snippets
 require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup({
@@ -572,7 +626,6 @@ cmp.setup({
 	},
 })
 
--- Use buffer source for `/` and `?`
 cmp.setup.cmdline({ "/", "?" }, {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = {
@@ -580,7 +633,6 @@ cmp.setup.cmdline({ "/", "?" }, {
 	},
 })
 
--- Use cmdline & path source for `:`
 cmp.setup.cmdline(":", {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = cmp.config.sources({
@@ -594,7 +646,6 @@ cmp.setup.cmdline(":", {
 -- LSP (LANGUAGE SERVER PROTOCOL) SETUP
 -- ============================================================================
 
--- Common LSP keybindings
 local on_attach = function(client, bufnr)
 	local opts = { buffer = bufnr, silent = true }
 
@@ -607,19 +658,14 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 
-	-- Enable inlay hints if supported
 	if client.server_capabilities.inlayHintProvider then
 		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 	end
 end
 
--- Capabilities for autocompletion
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
--- LSP Servers
 local lspconfig = require("lspconfig")
 
--- Python
 lspconfig.pyright.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -634,13 +680,11 @@ lspconfig.pyright.setup({
 	},
 })
 
--- Java
 lspconfig.jdtls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
--- Lua
 lspconfig.lua_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -658,7 +702,6 @@ lspconfig.lua_ls.setup({
 	},
 })
 
--- Nix
 lspconfig.nil_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -669,7 +712,6 @@ lspconfig.nil_ls.setup({
 	},
 })
 
--- C/C++
 lspconfig.clangd.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -680,6 +722,89 @@ lspconfig.clangd.setup({
 		"--header-insertion=iwyu",
 		"--completion-style=detailed",
 		"--function-arg-placeholders",
+	},
+})
+
+-- ============================================================================
+-- DAP (DEBUG ADAPTER PROTOCOL) CONFIGURATION
+-- ============================================================================
+
+local dap = require("dap")
+local dapui = require("dapui")
+
+-- DAP UI Setup
+dapui.setup({
+	layouts = {
+		{
+			elements = {
+				{ id = "scopes", size = 0.25 },
+				{ id = "breakpoints", size = 0.25 },
+				{ id = "stacks", size = 0.25 },
+				{ id = "watches", size = 0.25 },
+			},
+			size = 40,
+			position = "left",
+		},
+		{
+			elements = {
+				{ id = "repl", size = 0.5 },
+				{ id = "console", size = 0.5 },
+			},
+			size = 10,
+			position = "bottom",
+		},
+	},
+})
+
+-- Virtual Text for DAP
+require("nvim-dap-virtual-text").setup({
+	enabled = true,
+	enabled_commands = true,
+	highlight_changed_variables = true,
+	highlight_new_as_changed = false,
+	show_stop_reason = true,
+	commented = false,
+})
+
+-- Auto-open/close DAP UI
+dap.listeners.after.event_initialized["dapui_config"] = function()
+	dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+	dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+	dapui.close()
+end
+
+-- Python DAP Configuration
+require("dap-python").setup("python3")
+
+-- DAP Signs
+vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpointCondition", { text = "🟡", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpointRejected", { text = "🚫", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapStopped", { text = "➡️", texthl = "", linehl = "", numhl = "" })
+
+-- ============================================================================
+-- NEOTEST CONFIGURATION
+-- ============================================================================
+
+require("neotest").setup({
+	adapters = {
+		require("neotest-python")({
+			dap = { justMyCode = false },
+			args = { "--log-level", "DEBUG" },
+			runner = "pytest",
+		}),
+		require("neotest-plenary"),
+	},
+	status = { virtual_text = true },
+	output = { open_on_run = true },
+	quickfix = {
+		open = function()
+			require("trouble").open({ mode = "quickfix", focus = false })
+		end,
 	},
 })
 
@@ -698,7 +823,16 @@ require("lualine").setup({
 		lualine_a = { "mode" },
 		lualine_b = { "branch", "diff", "diagnostics" },
 		lualine_c = { { "filename", path = 1 } },
-		lualine_x = { "encoding", "fileformat", "filetype" },
+		lualine_x = {
+			{
+				require("lazy.status").updates,
+				cond = require("lazy.status").has_updates,
+				color = { fg = "#ff9e64" },
+			},
+			"encoding",
+			"fileformat",
+			"filetype",
+		},
 		lualine_y = { "progress" },
 		lualine_z = { "location" },
 	},
@@ -745,11 +879,8 @@ require("gitsigns").setup({
 			vim.keymap.set(mode, l, r, opts)
 		end
 
-		-- Navigation
 		map("n", "]h", gs.next_hunk, { desc = "Next Hunk" })
 		map("n", "[h", gs.prev_hunk, { desc = "Prev Hunk" })
-
-		-- Actions
 		map("n", "<leader>hs", gs.stage_hunk, { desc = "Stage hunk" })
 		map("n", "<leader>hr", gs.reset_hunk, { desc = "Reset hunk" })
 		map("v", "<leader>hs", function()
@@ -918,13 +1049,14 @@ dashboard.section.header.val = {
 	"  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝",
 	"                                                     ",
 	"           [ Ready to code with precision ]         ",
-	"                   Powered by NixOS                  ",
+	"              Powered by NixOS • Debugging • Testing ",
 }
 
 dashboard.section.buttons.val = {
 	dashboard.button("f", "  Find File", ":Telescope find_files <CR>"),
 	dashboard.button("e", "  New File", ":ene <BAR> startinsert <CR>"),
 	dashboard.button("r", "  Recently Used Files", ":Telescope oldfiles <CR>"),
+	dashboard.button("p", "  Find Project", ":Telescope projects <CR>"),
 	dashboard.button("t", "  Find Text", ":Telescope live_grep <CR>"),
 	dashboard.button("c", "  Configuration", ":e $MYVIMRC <CR>"),
 	dashboard.button("s", "  Restore Session", ":lua require('persistence').load() <CR>"),
@@ -960,7 +1092,6 @@ vim.api.nvim_create_autocmd("User", {
 -- KEY MAPPINGS & WHICH-KEY CONFIGURATION
 -- ============================================================================
 
--- Basic keymaps
 local keymap = vim.keymap.set
 local opts = { silent = true, noremap = true }
 
@@ -979,7 +1110,6 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Buffer navigation
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "<leader>bd", ":bdelete<CR>", { desc = "Delete buffer", silent = true })
 
 -- Better indenting
 keymap("v", "<", "<gv", opts)
@@ -998,11 +1128,6 @@ keymap("n", "N", "Nzzzv", opts)
 -- Clear search highlights
 keymap("n", "<Esc>", ":noh<CR>", opts)
 
--- Save and quit shortcuts
-keymap("n", "<leader>w", ":w<CR>", { desc = "Save", silent = true })
-keymap("n", "<leader>q", ":q<CR>", { desc = "Quit", silent = true })
-keymap("n", "<leader>Q", ":qa!<CR>", { desc = "Quit all", silent = true })
-
 -- Which-key setup
 local wk = require("which-key")
 
@@ -1014,15 +1139,11 @@ wk.setup({
 			enabled = true,
 			suggestions = 20,
 		},
-		presets = {
-			operators = true,
-			motions = true,
-			text_objects = true,
-			windows = true,
-			nav = true,
-			z = true,
-			g = true,
-		},
+	},
+	icons = {
+		breadcrumb = "»",
+		separator = "➜",
+		group = "+",
 	},
 	window = {
 		border = "rounded",
@@ -1030,53 +1151,59 @@ wk.setup({
 	},
 })
 
--- Which-key mappings
+-- Which-key mappings with icons
 wk.add({
 	-- File operations
-	{ "<leader>f", group = "Find" },
-	{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Files" },
-	{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Grep" },
-	{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-	{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help" },
-	{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files" },
-	{ "<leader>fc", "<cmd>Telescope grep_string<cr>", desc = "Find Word" },
-	{ "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
-	{ "<leader>fm", "<cmd>Telescope marks<cr>", desc = "Marks" },
+	{ "<leader>f", group = "🔍 Find", icon = "" },
+	{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Files", icon = "" },
+	{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Grep", icon = "" },
+	{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers", icon = "" },
+	{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help", icon = "󰋖" },
+	{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files", icon = "" },
+	{ "<leader>fc", "<cmd>Telescope grep_string<cr>", desc = "Find Word", icon = "" },
+	{ "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps", icon = "" },
+	{ "<leader>fm", "<cmd>Telescope marks<cr>", desc = "Marks", icon = "" },
+
+	-- Project operations
+	{ "<leader>p", group = "📁 Project", icon = "" },
+	{ "<leader>pp", "<cmd>Telescope projects<cr>", desc = "Projects", icon = "" },
+	{ "<leader>pf", "<cmd>Telescope find_files<cr>", desc = "Find File", icon = "" },
+	{ "<leader>ps", "<cmd>Telescope live_grep<cr>", desc = "Search", icon = "" },
 
 	-- Git operations
-	{ "<leader>g", group = "Git" },
-	{ "<leader>gg", "<cmd>Git<cr>", desc = "Git status" },
-	{ "<leader>gc", "<cmd>Git commit<cr>", desc = "Commit" },
-	{ "<leader>gp", "<cmd>Git push<cr>", desc = "Push" },
-	{ "<leader>gP", "<cmd>Git pull<cr>", desc = "Pull" },
-	{ "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Branches" },
-	{ "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Diff view" },
-	{ "<leader>gh", "<cmd>DiffviewFileHistory<cr>", desc = "File history" },
-	{ "<leader>gC", "<cmd>DiffviewClose<cr>", desc = "Close Diffview" },
+	{ "<leader>g", group = "🔀 Git", icon = "" },
+	{ "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit", icon = "" },
+	{ "<leader>gG", "<cmd>Git<cr>", desc = "Git Status", icon = "" },
+	{ "<leader>gc", "<cmd>Git commit<cr>", desc = "Commit", icon = "" },
+	{ "<leader>gp", "<cmd>Git push<cr>", desc = "Push", icon = "󰜘" },
+	{ "<leader>gP", "<cmd>Git pull<cr>", desc = "Pull", icon = "󰇚" },
+	{ "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Branches", icon = "" },
+	{ "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Diff View", icon = "" },
+	{ "<leader>gh", "<cmd>DiffviewFileHistory<cr>", desc = "File History", icon = "" },
+	{ "<leader>gC", "<cmd>DiffviewClose<cr>", desc = "Close Diffview", icon = "" },
+	{ "<leader>gl", "<cmd>LazyGitCurrentFile<cr>", desc = "LazyGit Current File", icon = "" },
 
-	-- Git hunks (from gitsigns)
-	{ "<leader>h", group = "Git Hunks" },
+	-- Git hunks
+	{ "<leader>h", group = "🔄 Git Hunks", icon = "" },
 
 	-- LSP operations
-	{ "<leader>l", group = "LSP" },
+	{ "<leader>l", group = "💡 LSP", icon = "" },
 	{
 		"<leader>ld",
 		function()
 			vim.diagnostic.open_float()
 		end,
 		desc = "Line Diagnostics",
+		icon = "",
 	},
-	{
-		"<leader>lD",
-		"<cmd>Telescope diagnostics<cr>",
-		desc = "Workspace Diagnostics",
-	},
+	{ "<leader>lD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace Diagnostics", icon = "" },
 	{
 		"<leader>ln",
 		function()
 			vim.diagnostic.goto_next()
 		end,
 		desc = "Next Diagnostic",
+		icon = "",
 	},
 	{
 		"<leader>lp",
@@ -1084,6 +1211,7 @@ wk.add({
 			vim.diagnostic.goto_prev()
 		end,
 		desc = "Prev Diagnostic",
+		icon = "",
 	},
 	{
 		"<leader>la",
@@ -1091,6 +1219,7 @@ wk.add({
 			vim.lsp.buf.code_action()
 		end,
 		desc = "Code Action",
+		icon = "",
 	},
 	{
 		"<leader>lf",
@@ -1098,25 +1227,187 @@ wk.add({
 			require("conform").format({ lsp_fallback = true })
 		end,
 		desc = "Format",
+		icon = "",
 	},
-	{ "<leader>li", "<cmd>LspInfo<cr>", desc = "LSP Info" },
-	{ "<leader>lr", "<cmd>LspRestart<cr>", desc = "Restart LSP" },
+	{ "<leader>li", "<cmd>LspInfo<cr>", desc = "LSP Info", icon = "" },
+	{ "<leader>lr", "<cmd>LspRestart<cr>", desc = "Restart LSP", icon = "" },
 	{
 		"<leader>lh",
 		function()
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 		end,
 		desc = "Toggle Inlay Hints",
+		icon = "󰌵",
+	},
+
+	-- Debugging (DAP)
+	{ "<leader>d", group = "🐛 Debug", icon = "" },
+	{
+		"<leader>db",
+		function()
+			require("dap").toggle_breakpoint()
+		end,
+		desc = "Toggle Breakpoint",
+		icon = "🔴",
+	},
+	{
+		"<leader>dB",
+		function()
+			require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+		end,
+		desc = "Conditional Breakpoint",
+		icon = "🟡",
+	},
+	{
+		"<leader>dc",
+		function()
+			require("dap").continue()
+		end,
+		desc = "Continue",
+		icon = "▶️",
+	},
+	{
+		"<leader>di",
+		function()
+			require("dap").step_into()
+		end,
+		desc = "Step Into",
+		icon = "⬇️",
+	},
+	{
+		"<leader>do",
+		function()
+			require("dap").step_over()
+		end,
+		desc = "Step Over",
+		icon = "➡️",
+	},
+	{
+		"<leader>dO",
+		function()
+			require("dap").step_out()
+		end,
+		desc = "Step Out",
+		icon = "⬆️",
+	},
+	{
+		"<leader>dr",
+		function()
+			require("dap").repl.toggle()
+		end,
+		desc = "Toggle REPL",
+		icon = "",
+	},
+	{
+		"<leader>dl",
+		function()
+			require("dap").run_last()
+		end,
+		desc = "Run Last",
+		icon = "",
+	},
+	{
+		"<leader>dt",
+		function()
+			require("dap").terminate()
+		end,
+		desc = "Terminate",
+		icon = "⏹️",
+	},
+	{
+		"<leader>du",
+		function()
+			require("dapui").toggle()
+		end,
+		desc = "Toggle UI",
+		icon = "",
+	},
+	{
+		"<leader>de",
+		function()
+			require("dapui").eval()
+		end,
+		desc = "Eval",
+		icon = "",
+		mode = { "n", "v" },
+	},
+
+	-- Testing (Neotest)
+	{ "<leader>T", group = "🧪 Test", icon = "󰙨" },
+	{
+		"<leader>Tr",
+		function()
+			require("neotest").run.run()
+		end,
+		desc = "Run Nearest Test",
+		icon = "",
+	},
+	{
+		"<leader>Tf",
+		function()
+			require("neotest").run.run(vim.fn.expand("%"))
+		end,
+		desc = "Run File Tests",
+		icon = "",
+	},
+	{
+		"<leader>Td",
+		function()
+			require("neotest").run.run({ strategy = "dap" })
+		end,
+		desc = "Debug Nearest Test",
+		icon = "",
+	},
+	{
+		"<leader>Ts",
+		function()
+			require("neotest").run.stop()
+		end,
+		desc = "Stop Test",
+		icon = "",
+	},
+	{
+		"<leader>Ta",
+		function()
+			require("neotest").run.attach()
+		end,
+		desc = "Attach Test",
+		icon = "",
+	},
+	{
+		"<leader>To",
+		function()
+			require("neotest").output.open({ enter = true })
+		end,
+		desc = "Show Output",
+		icon = "",
+	},
+	{
+		"<leader>TS",
+		function()
+			require("neotest").summary.toggle()
+		end,
+		desc = "Toggle Summary",
+		icon = "",
+	},
+	{
+		"<leader>Tw",
+		function()
+			require("neotest").watch.toggle()
+		end,
+		desc = "Toggle Watch",
+		icon = "",
 	},
 
 	-- Code operations
-	{ "<leader>c", group = "Code" },
+	{ "<leader>c", group = "💻 Code", icon = "" },
 	{
 		"<leader>cf",
 		function()
 			require("conform").format({ lsp_fallback = true })
 		end,
 		desc = "Format",
+		icon = "",
 	},
 	{
 		"<leader>cl",
@@ -1124,45 +1415,47 @@ wk.add({
 			lint.try_lint()
 		end,
 		desc = "Lint",
+		icon = "",
 	},
-	{ "<leader>co", "<cmd>AerialToggle<cr>", desc = "Code Outline" },
+	{ "<leader>co", "<cmd>AerialToggle<cr>", desc = "Code Outline", icon = "" },
 
 	-- Buffer operations
-	{ "<leader>b", group = "Buffer" },
-	{ "<leader>bd", "<cmd>bdelete<cr>", desc = "Delete Buffer" },
-	{ "<leader>bn", "<cmd>bnext<cr>", desc = "Next Buffer" },
-	{ "<leader>bp", "<cmd>bprevious<cr>", desc = "Previous Buffer" },
-	{ "<leader>bD", "<cmd>%bd|e#|bd#<cr>", desc = "Delete All Buffers" },
-	{ "<leader>bb", "<cmd>Telescope buffers<cr>", desc = "Find Buffer" },
+	{ "<leader>b", group = "📄 Buffer", icon = "" },
+	{ "<leader>bd", "<cmd>bdelete<cr>", desc = "Delete Buffer", icon = "" },
+	{ "<leader>bn", "<cmd>bnext<cr>", desc = "Next Buffer", icon = "" },
+	{ "<leader>bp", "<cmd>bprevious<cr>", desc = "Previous Buffer", icon = "" },
+	{ "<leader>bD", "<cmd>%bd|e#|bd#<cr>", desc = "Delete All Buffers", icon = "" },
+	{ "<leader>bb", "<cmd>Telescope buffers<cr>", desc = "Find Buffer", icon = "" },
 
 	-- File explorer
-	{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "File Explorer" },
-	{ "<leader>o", "<cmd>NvimTreeFocus<cr>", desc = "Focus Explorer" },
+	{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "📁 File Explorer", icon = "" },
+	{ "<leader>o", "<cmd>NvimTreeFocus<cr>", desc = "Focus Explorer", icon = "" },
 
 	-- Diagnostics (Trouble)
-	{ "<leader>x", group = "Trouble" },
-	{ "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics" },
-	{ "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics" },
-	{ "<leader>xs", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols" },
-	{ "<leader>xl", "<cmd>Trouble lsp toggle<cr>", desc = "LSP References" },
-	{ "<leader>xL", "<cmd>Trouble loclist toggle<cr>", desc = "Location List" },
-	{ "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List" },
+	{ "<leader>x", group = "🚨 Trouble", icon = "" },
+	{ "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics", icon = "" },
+	{ "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics", icon = "" },
+	{ "<leader>xs", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols", icon = "" },
+	{ "<leader>xl", "<cmd>Trouble lsp toggle<cr>", desc = "LSP References", icon = "" },
+	{ "<leader>xL", "<cmd>Trouble loclist toggle<cr>", desc = "Location List", icon = "" },
+	{ "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List", icon = "" },
 
 	-- Terminal
-	{ "<leader>t", group = "Terminal" },
-	{ "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Float" },
-	{ "<leader>th", "<cmd>ToggleTerm direction=horizontal<cr>", desc = "Horizontal" },
-	{ "<leader>tv", "<cmd>ToggleTerm direction=vertical<cr>", desc = "Vertical" },
-	{ "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "Toggle" },
+	{ "<leader>t", group = "💻 Terminal", icon = "" },
+	{ "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Float", icon = "" },
+	{ "<leader>th", "<cmd>ToggleTerm direction=horizontal<cr>", desc = "Horizontal", icon = "" },
+	{ "<leader>tv", "<cmd>ToggleTerm direction=vertical<cr>", desc = "Vertical", icon = "" },
+	{ "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "Toggle", icon = "" },
 
 	-- Session management
-	{ "<leader>s", group = "Session" },
+	{ "<leader>s", group = "💾 Session", icon = "" },
 	{
 		"<leader>ss",
 		function()
 			require("persistence").load()
 		end,
 		desc = "Restore Session",
+		icon = "",
 	},
 	{
 		"<leader>sl",
@@ -1170,6 +1463,7 @@ wk.add({
 			require("persistence").load({ last = true })
 		end,
 		desc = "Restore Last Session",
+		icon = "",
 	},
 	{
 		"<leader>sd",
@@ -1177,26 +1471,28 @@ wk.add({
 			require("persistence").stop()
 		end,
 		desc = "Stop Session",
+		icon = "",
 	},
 
-	-- Zen mode
-	{ "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" },
+	-- Misc
+	{ "<leader>w", "<cmd>w<CR>", desc = "💾 Save", icon = "" },
+	{ "<leader>q", "<cmd>q<CR>", desc = "🚪 Quit", icon = "" },
+	{ "<leader>Q", "<cmd>qa!<CR>", desc = "⚠️  Quit All", icon = "" },
+	{ "<leader>z", "<cmd>ZenMode<cr>", desc = "🧘 Zen Mode", icon = "" },
+	{ "<leader>n", desc = "🔢 Toggle Relative Numbers", icon = "" },
+	{ "<leader>L", "<cmd>Lazy<cr>", desc = "💤 Lazy", icon = "" },
 
 	-- Markdown preview
-	{ "<leader>m", group = "Markdown" },
-	{ "<leader>mp", "<cmd>MarkdownPreview<cr>", desc = "Preview" },
-	{ "<leader>ms", "<cmd>MarkdownPreviewStop<cr>", desc = "Stop Preview" },
-	{ "<leader>mt", "<cmd>MarkdownPreviewToggle<cr>", desc = "Toggle Preview" },
-
-	-- Lazy plugin manager
-	{ "<leader>L", "<cmd>Lazy<cr>", desc = "Lazy" },
+	{ "<leader>m", group = "📝 Markdown", icon = "" },
+	{ "<leader>mp", "<cmd>MarkdownPreview<cr>", desc = "Preview", icon = "" },
+	{ "<leader>ms", "<cmd>MarkdownPreviewStop<cr>", desc = "Stop Preview", icon = "" },
+	{ "<leader>mt", "<cmd>MarkdownPreviewToggle<cr>", desc = "Toggle Preview", icon = "" },
 })
 
 -- ============================================================================
 -- AUTOCOMMANDS
 -- ============================================================================
 
--- Highlight yanked text
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
 	callback = function()
@@ -1204,7 +1500,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- Resize splits when window is resized
 vim.api.nvim_create_autocmd("VimResized", {
 	group = vim.api.nvim_create_augroup("resize_splits", { clear = true }),
 	callback = function()
@@ -1212,7 +1507,6 @@ vim.api.nvim_create_autocmd("VimResized", {
 	end,
 })
 
--- Close certain windows with 'q'
 vim.api.nvim_create_autocmd("FileType", {
 	group = vim.api.nvim_create_augroup("close_with_q", { clear = true }),
 	pattern = {
@@ -1230,7 +1524,6 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
--- Don't auto comment new line
 vim.api.nvim_create_autocmd("BufEnter", {
 	group = vim.api.nvim_create_augroup("disable_auto_comment", { clear = true }),
 	callback = function()
@@ -1238,13 +1531,11 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	end,
 })
 
--- Check if file changed outside of vim
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 	group = vim.api.nvim_create_augroup("checktime", { clear = true }),
 	command = "checktime",
 })
 
--- Go to last location when opening a buffer
 vim.api.nvim_create_autocmd("BufReadPost", {
 	group = vim.api.nvim_create_augroup("last_loc", { clear = true }),
 	callback = function()
@@ -1260,7 +1551,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 -- CUSTOM FUNCTIONS
 -- ============================================================================
 
--- Toggle relative line numbers
 local function toggle_relative_number()
 	if vim.wo.relativenumber then
 		vim.wo.relativenumber = false
@@ -1271,30 +1561,25 @@ local function toggle_relative_number()
 	end
 end
 
-vim.keymap.set("n", "<leader>n", toggle_relative_number, { desc = "Toggle Relative Numbers", silent = true })
+vim.keymap.set("n", "<leader>n", toggle_relative_number, { silent = true })
 
--- Quick source current file
 vim.keymap.set("n", "<leader><leader>", ":source %<CR>", { desc = "Source File", silent = true })
 
 -- ============================================================================
 -- TERMINAL MODE KEYMAPS
 -- ============================================================================
 
--- Better terminal navigation
 vim.keymap.set("t", "<C-h>", [[<C-\><C-n><C-w>h]], opts)
 vim.keymap.set("t", "<C-j>", [[<C-\><C-n><C-w>j]], opts)
 vim.keymap.set("t", "<C-k>", [[<C-\><C-n><C-w>k]], opts)
 vim.keymap.set("t", "<C-l>", [[<C-\><C-n><C-w>l]], opts)
 vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
-
--- Exit terminal mode easily
 vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]], opts)
 
 -- ============================================================================
--- PERFORMANCE TIPS
+-- PERFORMANCE OPTIMIZATIONS
 -- ============================================================================
 
--- Disable some built-in plugins
 local disabled_built_ins = {
 	"2html_plugin",
 	"getscript",
@@ -1315,93 +1600,3 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do
 	vim.g["loaded_" .. plugin] = 1
 end
-
--- ============================================================================
--- CONFIGURATION SUMMARY & IMPROVEMENTS
--- ============================================================================
---[[
-MAJOR IMPROVEMENTS OVER PREVIOUS CONFIG:
-
-1. BETTER ORGANIZATION:
-   - Clearer section headers
-   - Logical grouping of related configurations
-   - More comments explaining each section
-
-2. ENHANCED FEATURES:
-   ✨ BufferLine - Better buffer/tab management
-   ✨ Aerial - Code outline/structure viewer
-   ✨ Persistence - Session management
-   ✨ Mini.nvim - Additional text objects and line movement
-   ✨ Zen Mode - Distraction-free coding
-   ✨ Markdown Preview - Live markdown rendering
-   ✨ Nvim-surround - Easy surrounding text manipulation
-   ✨ Better Telescope integration with FZF
-
-3. IMPROVED COMPLETION:
-   - More completion sources (buffer, path, cmdline)
-   - Better Tab/S-Tab navigation
-   - Snippet support via LuaSnip
-   - Friendly-snippets integration
-
-4. ENHANCED LSP:
-   - Inlay hints support
-   - Better keybindings
-   - More LSP actions exposed
-   - Clangd with more features
-
-5. BETTER KEYMAPS:
-   - More intuitive window navigation
-   - Buffer management shortcuts
-   - Better text movement in visual mode
-   - Terminal mode improvements
-   - Session management keys
-
-6. QUALITY OF LIFE:
-   - Auto-highlight yanked text
-   - Auto-resize splits
-   - Remember last cursor position
-   - Better diagnostic icons
-   - Centered cursor on movements
-   - Quick file sourcing
-
-7. PERFORMANCE:
-   - Disabled unused built-in plugins
-   - Lazy loading for many plugins
-   - Better event handling
-
-8. UI IMPROVEMENTS:
-   - Better diagnostic signs
-   - Rounded borders everywhere
-   - Improved notifications
-   - Better status line with globalstatus
-   - BufferLine integration with file explorer
-
-9. GIT ENHANCEMENTS:
-   - More Gitsigns keybindings
-   - Better Git integration
-   - Telescope Git pickers
-
-10. AUTOCOMMANDS:
-    - Highlight on yank
-    - Auto-resize splits
-    - Close certain buffers with 'q'
-    - Disable auto-commenting
-    - Check for file changes
-
-USAGE TIPS:
-- Press <Space> to see all leader keybindings (Which-Key)
-- Use <C-\> to toggle terminal
-- Use <S-h> and <S-l> to navigate buffers
-- Use 's' for Flash jump navigation
-- Press <leader>z for zen mode
-- Press <leader>ss to restore last session
-- Use <leader>co for code outline
-- Press <leader>e to toggle file explorer
-
-NEXT STEPS TO CONSIDER:
-- Add DAP (Debug Adapter Protocol) for debugging
-- Add testing integration (neotest)
-- Add project-specific configurations
-- Add more language-specific plugins
-- Customize colors further if needed
---]]
