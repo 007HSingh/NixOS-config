@@ -168,7 +168,6 @@
     bat
     zoxide
     brave
-    wezterm
     pyright
     jdt-language-server
     lua-language-server

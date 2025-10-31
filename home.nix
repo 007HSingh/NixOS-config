@@ -32,7 +32,6 @@
   };
 
   home.file = {
-    ".config/wezterm/wezterm.lua".source = ./config/wezterm/wezterm.lua;
     ".config/nvim/init.lua".source = ./config/nvim/init.lua;
     ".config/waybar/config.jsonc".source = ./config/waybar/config.jsonc;
     ".config/waybar/style.css".source = ./config/waybar/style.css;
