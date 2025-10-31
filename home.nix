@@ -47,6 +47,7 @@
     ".config/hypr/hypridle.conf".source = ./config/hyprland/hypridle.conf;
     ".config/hypr/scripts/check-caps.sh".source = ./config/hyprland/scripts/check-caps.sh;
     ".config/hypr/scripts/battery-status.sh".source = ./config/hyprland/scripts/battery-status.sh;
+    ".config/kitty/kitty.conf".source = ./config/kitty/kitty.conf;
   };
 
   home.sessionVariables = {
