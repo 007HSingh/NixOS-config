@@ -184,6 +184,7 @@
         debugpy
         pip
         pynvim
+        uv
       ]
     ))
     stylua
