@@ -164,14 +164,18 @@
     unzip
     zip
     mission-center
-    lua
     bat
     zoxide
     brave
     pyright
     jdt-language-server
     lua-language-server
-    lua51Packages.luarocks
+    (lua51.withPackages (
+      ps: with ps; [
+        luarocks
+        luacheck
+      ]
+    ))
     nil
     black
     isort
@@ -196,7 +200,6 @@
     stylua
     google-java-format
     checkstyle
-    luajitPackages.luacheck
     jdk21_headless
     nixfmt-rfc-style
     ripgrep
