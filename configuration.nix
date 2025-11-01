@@ -242,6 +242,7 @@
     gdb
     kitty
     kdePackages.okular
+    jupyter
   ];
 
   nix = {
