@@ -182,20 +182,8 @@
         flake8
         pytest_7
         debugpy
-        jupyter-core
-        ipykernel
-        nbformat
         pip
-        ipython
-        pillow
-        pyperclip
-        cairosvg
-        pnglatex
-        plotly
-        kaleido
         pynvim
-        jupyter-client
-        jupytext
       ]
     ))
     stylua
