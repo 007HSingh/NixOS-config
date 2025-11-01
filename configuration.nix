@@ -192,6 +192,7 @@
         kaleido
         pynvim
         jupyter-client
+        jupytext
       ]
     ))
     stylua
