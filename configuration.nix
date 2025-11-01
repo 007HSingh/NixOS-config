@@ -176,7 +176,7 @@
     black
     isort
     mypy
-    (python313Packages.withPackages (
+    (python313.withPackages (
       ps: with ps; [
         flake8
         pytest_7
