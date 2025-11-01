@@ -236,6 +236,7 @@
     gdb
     kitty
     kdePackages.okular
+    python313Packages.debugpy
   ];
 
   nix = {
