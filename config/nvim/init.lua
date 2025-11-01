@@ -9,7 +9,7 @@
 -- Theme: Catppuccin Mocha
 -- Management: Lazy.nvim for plugins, NixOS for LSP/formatters/linters
 -- ============================================================================
-
+vim.g.python3_host_prog = "/run/current-system/sw/bin/python3"
 -- ============================================================================
 -- PERFORMANCE OPTIMIZATION
 -- ============================================================================
