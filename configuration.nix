@@ -247,6 +247,8 @@
     python313Packages.plotly
     python313Packages.kaleido
     imagemagick
+    python313Packages.pynvim
+    python313Packages.jupyter-client
   ];
 
   nix = {
