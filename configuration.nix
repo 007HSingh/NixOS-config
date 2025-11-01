@@ -242,8 +242,6 @@
     gdb
     kitty
     kdePackages.okular
-    jupyter
-    imagemagick
   ];
 
   nix = {
