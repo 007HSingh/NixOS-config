@@ -170,12 +170,9 @@
     pyright
     jdt-language-server
     lua-language-server
-    (lua51.withPackages (
-      ps: with ps; [
-        luarocks
-        luacheck
-      ]
-    ))
+    lua5_1
+    lua51Packages.luarocks
+    luajitPackages.luacheck
     nil
     black
     isort
