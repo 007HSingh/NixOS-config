@@ -241,6 +241,7 @@
     python313Packages.jupyter-core
     python313Packages.ipykernel
     python313Packages.nbformat
+    python313Packages.pip
   ];
 
   nix = {
