@@ -173,11 +173,26 @@
     lua-language-server
     lua51Packages.luarocks
     nil
-    python313
     black
     isort
     mypy
-    python313Packages.flake8
+    (python313Packages.withPackages (
+      ps: with ps; [
+        flake8
+        pytest_7
+        debugpy
+        jupyter-core
+        ipykernel
+        nbformat
+        pip
+        cairosvg
+        pnglatex
+        plotly
+        kaleido
+        pynvim
+        jupyter-client
+      ]
+    ))
     stylua
     google-java-format
     checkstyle
@@ -232,23 +247,11 @@
     jq
     jetbrains.idea-ultimate
     lazygit
-    python313Packages.pytest_7
     gdb
     kitty
     kdePackages.okular
-    python313Packages.debugpy
     jupyter
-    python313Packages.jupyter-core
-    python313Packages.ipykernel
-    python313Packages.nbformat
-    python313Packages.pip
-    python313Packages.cairosvg
-    python313Packages.pnglatex
-    python313Packages.plotly
-    python313Packages.kaleido
     imagemagick
-    python313Packages.pynvim
-    python313Packages.jupyter-client
   ];
 
   nix = {
