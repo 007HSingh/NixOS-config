@@ -242,6 +242,11 @@
     python313Packages.ipykernel
     python313Packages.nbformat
     python313Packages.pip
+    python313Packages.cairosvg
+    python313Packages.pnglatex
+    python313Packages.plotly
+    python313Packages.kaleido
+    imagemagick
   ];
 
   nix = {
