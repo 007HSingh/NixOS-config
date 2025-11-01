@@ -127,22 +127,6 @@
     withNodeJs = true;
     vimAlias = true;
     viAlias = true;
-
-    extraPython3Packages =
-      ps: with ps; [
-        pynvim
-        jupyter-client
-        ipykernel
-        nbformat
-        cairosvg
-        pnglatex
-        plotly
-        kaleido
-        pyperclip
-        pillow
-        ipython
-        jupyter-core
-      ];
   };
 
   # Install git.
