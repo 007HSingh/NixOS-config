@@ -237,6 +237,10 @@
     kitty
     kdePackages.okular
     python313Packages.debugpy
+    jupyter
+    python313Packages.jupyter-core
+    python313Packages.ipykernel
+    python313Packages.nbformat
   ];
 
   nix = {
