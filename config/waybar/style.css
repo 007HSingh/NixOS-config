@@ -5,6 +5,7 @@
     font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
     font-size: 12px;
 }
+
 /* Waybar */
 #waybar {
     background-color: transparent;
@@ -21,13 +22,12 @@
 
 #waybar .module:hover {
     color: @subtext1;
-
 }
 
 #window#waybar {
     color: @text;
     background-color: @base;
-    transition-property:  background-color;
+    transition-property: background-color;
     transition-duration: 0.5s;
     border: 2px solid @mauve;
 }
@@ -63,7 +63,7 @@ button:hover {
 #workspaces button.active {
     background: @mauve;
     color: @crust;
-    border-radius:  4.5pt;
+    border-radius: 4.5pt;
     margin-left: 0px;
     padding-left: 8px;
     padding-right: 8px;
@@ -107,10 +107,12 @@ button:hover {
     color: @text;
 }
 
-#group-10, {
+/* Fixed: removed trailing comma */
+#group-10 {
     padding-left: 8px;
     padding-right: 8px;
 }
+
 #group-9,
 #group-8,
 #group-7,
@@ -122,12 +124,12 @@ button:hover {
 #group-2,
 #group-1 {
     border-radius: 4.5pt;
-    background: @base; /* linear-gradient(145deg, #1e1e2e 0%, #181825 100%); */
+    background: @base;
     margin: 0px 3px;
     border-radius: 6px;
-    background: @base; /* linear-gradient(145deg, #1e1e2e 0%, #181825 100%); */
     border: 2px;
 }
+
 #custom-discord,
 #custom-reddit,
 #custom-instagram,
@@ -136,19 +138,20 @@ button:hover {
 #custom-firefox,
 #custom-spotify,
 #custom-github {
-  border: 2px;
-  font-size: 14px;
+    border: 2px;
+    font-size: 14px;
 }
 
 #custom-keybinds,
 #bluetooth,
 #custom-pkg-aur {
-  font-size: 13px;
-  
+    font-size: 13px;
 }
 
-#custom-next, #custom-pause, #custom-previous {
-  font-size: 15px;
+#custom-next,
+#custom-pause,
+#custom-previous {
+    font-size: 15px;
 }
 
 #network.disconnected,
@@ -159,7 +162,7 @@ button:hover {
 
 #battery.charging,
 #battery.plugged {
-    color: @green; /* linear-gradient(145deg, @green 0%, #1e1e2e 100%); */
+    color: @green;
 }
 
 label:focus {
@@ -173,4 +176,4 @@ label:focus {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-} 
+}
