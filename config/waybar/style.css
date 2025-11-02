@@ -171,3 +171,8 @@ label:focus {
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
+
+#idle_inhibitor {
+    padding-left: 8px;
+    padding-right: 8px;
+}
