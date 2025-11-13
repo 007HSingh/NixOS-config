@@ -245,6 +245,7 @@
     kdePackages.okular
     jupyter
     discord
+    watson
   ];
 
   nix = {
