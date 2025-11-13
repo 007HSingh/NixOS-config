@@ -244,6 +244,7 @@
     kitty
     kdePackages.okular
     jupyter
+    discord
   ];
 
   nix = {
