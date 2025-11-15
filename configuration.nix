@@ -254,7 +254,6 @@
     jupyter
     discord
     slack
-    notion-app
   ];
 
   nix = {
