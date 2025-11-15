@@ -253,6 +253,7 @@
     kdePackages.okular
     jupyter
     discord
+    slack
   ];
 
   nix = {
