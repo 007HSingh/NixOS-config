@@ -49,6 +49,8 @@
     ];
   };
 
+  networking.enableIPv6 = false;
+
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
