@@ -268,6 +268,7 @@
     jupyter
     discord
     slack
+    docker-compose
   ];
 
   nix = {
