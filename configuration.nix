@@ -269,6 +269,7 @@
     discord
     slack
     docker-compose
+    obsidian
   ];
 
   nix = {
