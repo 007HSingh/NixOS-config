@@ -270,8 +270,6 @@
     slack
     docker-compose
     obsidian
-    android-studio
-    gradle
   ];
 
   nix = {
