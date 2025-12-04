@@ -12,15 +12,12 @@
     fzf.enable = true;
   };
 
-  programs.git = {
-    userName = "Harsh Singh";
-    userEmail = "singhharsh25032008@gmail.com";
-
-    extraConfig = {
-      init.defaultBranch = "main";
-      pull.rebase = false;
-      core.editor = "nvim";
-    };
+  programs.git.settings = {
+    user.name = "Harsh Singh";
+    user.email = "singhharsh25032008@gmail.com";
+    init.defaultBranch = "main";
+    pull.rebase = false;
+    core.editor = "nvim";
 
     aliases = {
       st = "status";
