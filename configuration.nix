@@ -19,7 +19,6 @@
     ./modules/desktop/sddm.nix
     ./modules/services/audio.nix
     ./modules/services/bluetooth.nix
-    ./modules/services/printing.nix
     ./modules/users/harshs.nix
     ./modules/programs/default.nix
     ./modules/packages/default.nix
