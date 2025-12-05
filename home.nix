@@ -34,13 +34,21 @@
     enableCompletion = true;
 
     initContent = ''
-      # Zoxide initialization
       eval "$(zoxide init zsh)"
 
-      # FZF keybindings
       source ${pkgs.fzf}/share/fzf/key-bindings.zsh
       source ${pkgs.fzf}/share/fzf/completion.zsh
+
+      source ~/.p10k.zsh
     '';
+
+    plugins = [
+      {
+        name = "powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
+    ];
 
     history = {
       size = 10000;

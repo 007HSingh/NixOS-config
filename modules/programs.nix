@@ -12,7 +12,6 @@
 
       ohMyZsh = {
         enable = true;
-        theme = "powerlevel10k/powerlevel10k";
         plugins = [
           "git"
           "sudo"
