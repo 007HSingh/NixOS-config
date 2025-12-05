@@ -33,7 +33,7 @@
     enable = true;
     enableCompletion = true;
 
-    initExtra = ''
+    initContent = ''
       # Zoxide initialization
       eval "$(zoxide init zsh)"
 
