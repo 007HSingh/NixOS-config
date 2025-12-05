@@ -10,10 +10,10 @@
     };
 
     # Firewall configuration
-    # firewall = {
-    #   enable = true;
-    #   allowedTCPPorts = [ ];
-    #   allowedUDPPorts = [ ];
-    # };
+    firewall = {
+      enable = true;
+      #   allowedTCPPorts = [ ];
+      #   allowedUDPPorts = [ ];
+    };
   };
 }

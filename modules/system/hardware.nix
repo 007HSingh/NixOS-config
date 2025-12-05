@@ -1,13 +1,18 @@
 { config, ... }:
 
 {
+  services.blueman.enable = true;
+
   hardware = {
     graphics.enable = true;
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
 
     nvidia = {
       modesetting.enable = true;
-      powerManagement.enable = false;
+      powerManagement.enable = true;
       powerManagement.finegrained = false;
       open = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;

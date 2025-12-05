@@ -29,22 +29,46 @@
     };
   };
 
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+
+    initExtra = ''
+      # Zoxide initialization
+      eval "$(zoxide init zsh)"
+
+      # FZF keybindings
+      source ${pkgs.fzf}/share/fzf/key-bindings.zsh
+      source ${pkgs.fzf}/share/fzf/completion.zsh
+    '';
+
+    history = {
+      size = 10000;
+      path = "${config.home.homeDirectory}/.zsh_history";
+    };
+  };
+
   home.file = {
-    ".config/nvim/init.lua".source = ./config/nvim/init.lua;
-    ".config/waybar/config.jsonc".source = ./config/waybar/config.jsonc;
-    ".config/waybar/style.css".source = ./config/waybar/style.css;
-    ".config/waybar/mocha.css".source = ./config/waybar/mocha.css;
-    ".config/hypr/hyprland.conf".source = ./config/hyprland/hyprland.conf;
-    ".config/hypr/hyprpaper.conf".source = ./config/hyprland/hyprpaper.conf;
-    ".config/wofi/config/config".source = ./config/wofi/config;
-    ".config/wofi/src/mocha/style.css".source = ./config/wofi/style.css;
-    ".config/dunst/dunstrc".source = ./config/dunst/dunstrc;
-    ".config/wlogout/layout".source = ./config/wlogout/layout;
-    ".config/hypr/hyprlock.conf".source = ./config/hyprland/hyprlock.conf;
-    ".config/hypr/hypridle.conf".source = ./config/hyprland/hypridle.conf;
-    ".config/hypr/scripts/check-caps.sh".source = ./config/hyprland/scripts/check-caps.sh;
-    ".config/hypr/scripts/battery-status.sh".source = ./config/hyprland/scripts/battery-status.sh;
-    ".config/kitty/kitty.conf".source = ./config/kitty/kitty.conf;
+    "Downloads/Wallpapers".source = ./config/wallpapers;
+
+    ".config/nvim/" = {
+      source = ./config/nvim;
+      recursive = true;
+    };
+    ".config/waybar" = {
+      source = ./config/waybar;
+      recursive = true;
+
+    };
+    ".config/hypr" = {
+      source = ./config/hyprland;
+      recursive = true;
+    };
+
+    ".config/wofi".source = ./config/wofi;
+    ".config/dunst".source = ./config/dunst;
+    ".config/wlogout".source = ./config/wlogout;
+    ".config/kitty".source = ./config/kitty;
   };
 
   home.sessionVariables = {

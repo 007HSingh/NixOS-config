@@ -460,7 +460,7 @@ pcall(require("telescope").load_extension, "projects")
 
 require("conform").setup({
 	formatters_by_ft = {
-		python = { "isort", "black" },
+		python = { "ruff", "ruff" },
 		java = { "google-java-format" },
 		lua = { "stylua" },
 		nix = { "nixfmt" },
@@ -482,7 +482,7 @@ require("conform").setup({
 
 local lint = require("lint")
 lint.linters_by_ft = {
-	python = { "flake8", "mypy" },
+	python = { "ruff", "mypy" },
 	java = { "checkstyle" },
 	lua = { "luacheck" },
 	c = { "clangtidy" },

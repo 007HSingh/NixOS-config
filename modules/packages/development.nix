@@ -16,20 +16,12 @@
     nodePackages.prettier
 
     # Python
+    python313
+    python313Packages.pip
+    python313Packages.pynvim
+
     pyright
-    black
-    isort
-    mypy
-    (python313.withPackages (
-      ps: with ps; [
-        flake8
-        pytest_7
-        debugpy
-        pip
-        pynvim
-        uv
-      ]
-    ))
+    ruff
 
     # Java
     jdt-language-server

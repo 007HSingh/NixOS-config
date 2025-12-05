@@ -2,6 +2,14 @@
 
 {
   environment.systemPackages = with pkgs; [
+    # Essential Wayland/Hyprland support
+    xdg-desktop-portal-hyprland
+    xdg-desktop-portal-gtk # Fallback portal
+    polkit-gnome # Authentication agent
+    qt5.qtwayland
+    qt6.qtwayland
+    wl-clip-persist # Clipboard persistence
+
     # Hyprland core
     waybar
     hyprpaper
@@ -18,15 +26,14 @@
     networkmanagerapplet
     pavucontrol
 
-    # Bluetooth
-    bluez
-    bluez-tools
-
     # Screenshots & screen tools
     grim
     slurp
     swappy
     hyprpicker
+
+    # Bluetooth
+    blueman
 
     # Clipboard
     wl-clipboard
