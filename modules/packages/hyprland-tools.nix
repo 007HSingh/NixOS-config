@@ -5,7 +5,7 @@
     # Essential Wayland/Hyprland support
     xdg-desktop-portal-hyprland
     xdg-desktop-portal-gtk # Fallback portal
-    polkit-gnome # Authentication agent
+    polkit_gnome # Authentication agent
     qt5.qtwayland
     qt6.qtwayland
     wl-clip-persist # Clipboard persistence
