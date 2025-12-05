@@ -12,25 +12,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-  ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = false;
-
-  boot.loader.grub = {
-    enable = true;
-    efiSupport = true;
-    device = "nodev";
-    useOSProber = true;
-  };
-
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.kernelParams = [
-    "quiet"
-    "loglevel=3"
-    "rd.systemd.show_status=0"
-    "udev.log_level=3"
+    ./modules/system/boot.nix
   ];
 
   networking.hostName = "nixos"; # Define your hostname.
