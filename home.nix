@@ -13,6 +13,7 @@
   };
 
   programs.git.settings = {
+    enable = true;
     user.name = "Harsh Singh";
     user.email = "singhharsh25032008@gmail.com";
     init.defaultBranch = "main";
