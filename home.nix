@@ -110,6 +110,11 @@
       executable = true;
     };
 
+    ".config/scripts/nixos-diff.sh" = {
+      source = ./config/scripts/nixos-diff.sh;
+      executable = true;
+    };
+
     ".config/wofi".source = ./config/wofi;
     ".config/wlogout".source = ./config/wlogout;
     ".config/kitty".source = ./config/kitty;

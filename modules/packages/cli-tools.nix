@@ -33,5 +33,8 @@
     # Utilities
     xdg-utils
     jq
+
+    # System management
+    nvd
   ];
 }

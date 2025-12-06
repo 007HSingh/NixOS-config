@@ -31,6 +31,7 @@
         hm-update = "home-manager switch --flake .#harshs";
         generations = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
         clean = "sudo nix-collect-garbage -d";
+        diff-system = "nvd diff /nix/var/nix/profiles/system-*-link | tail -n 2 | head -n 1 /nix/var/nix/profiles/system-*-link | tail -n 1";
       };
 
     };
