@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   home.username = "harshs";
@@ -32,8 +37,7 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    initExtraFirst = "source ~/.p10k.zsh";
-    initContent = ''
+    initContent = lib.mkBefore "source ~/.p10k.zsh" + ''
       eval "$(zoxide init zsh)"
 
       source ${pkgs.fzf}/share/fzf/key-bindings.zsh
