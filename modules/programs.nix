@@ -1,9 +1,8 @@
-{ ... }:
+{ config, pkgs, ... }:
 
 {
   programs = {
     firefox.enable = true;
-    git.enable = true;
     zsh = {
       enable = true;
       enableCompletion = true;
@@ -12,6 +11,29 @@
         async = true;
       };
       syntaxHighlighting.enable = true;
+
+      initExtraFirst = ''
+        source ~/.p10k.zsh
+      '';
+      initContent = ''
+        eval "$(zoxide init zsh)"
+
+        source ${pkgs.fzf}/share/fzf/key-bindings.zsh
+        source ${pkgs.fzf}/share/fzf/completion.zsh
+      '';
+
+      plugins = [
+        {
+          name = "powerlevel10k";
+          src = pkgs.zsh-powerlevel10k;
+          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        }
+      ];
+
+      history = {
+        size = 10000;
+        path = "${config.home.homeDirectory}/.zsh_history";
+      };
 
       ohMyZsh = {
         enable = true;

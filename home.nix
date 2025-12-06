@@ -33,33 +33,6 @@
     };
   };
 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    initExtraFirst = ''
-      source ~/.p10k.zsh
-    '';
-    initContent = ''
-      eval "$(zoxide init zsh)"
-
-      source ${pkgs.fzf}/share/fzf/key-bindings.zsh
-      source ${pkgs.fzf}/share/fzf/completion.zsh
-    '';
-
-    plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-    ];
-
-    history = {
-      size = 10000;
-      path = "${config.home.homeDirectory}/.zsh_history";
-    };
-  };
-
   home.file = {
     "Downloads/Wallpapers".source = ./config/wallpapers;
 
