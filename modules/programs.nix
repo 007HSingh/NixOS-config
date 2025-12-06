@@ -24,8 +24,8 @@
       };
 
       shellAliases = {
-        ls = "eza --icons";
-        ll = "eza -la --icons";
+        ls = "eza --icons --tree";
+        ll = "eza -la --icons --tree";
         cat = "bat";
         update = "sudo nixos-rebuild switch --flake .#nixos |& nom";
         generations = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
