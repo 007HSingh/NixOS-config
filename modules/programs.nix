@@ -30,7 +30,7 @@
         update = "sudo nixos-rebuild switch --flake .#nixos";
         hm-update = "home-manager switch --flake .#harshs";
         generations = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
-        clean = "sudo nix-collect-garbage -d && sudo nix-store --optimise";
+        clean = "sudo nix-collect-garbage -d";
       };
 
     };
