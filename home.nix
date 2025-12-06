@@ -32,14 +32,12 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-
+    initExtraFirst = "source ~/.p10k.zsh";
     initContent = ''
       eval "$(zoxide init zsh)"
 
       source ${pkgs.fzf}/share/fzf/key-bindings.zsh
       source ${pkgs.fzf}/share/fzf/completion.zsh
-
-      source ~/.p10k.zsh
     '';
 
     plugins = [
