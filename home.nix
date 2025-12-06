@@ -37,7 +37,7 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    initContent = lib.mkBefore "source ~/.p10k.zsh" + ''
+    initContent = lib.mkBefore ''source ~/.p10k.zsh'' + ''
       eval "$(zoxide init zsh)"
 
       source ${pkgs.fzf}/share/fzf/key-bindings.zsh
