@@ -63,6 +63,26 @@
     };
   };
 
+  services.dunst = {
+    enable = true;
+    settings = {
+      global = {
+        follow = "mouse";
+        width = 300;
+        notification_limit = 5;
+        progress_bar = true;
+        progress_bar_height = 10;
+        progress_bar_frame_width = 1;
+        gap_size = 5;
+        padding = 15;
+        horizontal_padding = 15;
+        frame_width = 2;
+        corner_radius = 12;
+        font = "JetBrainsMono Nerd Font 10";
+      };
+    };
+  };
+
   home.file = {
     "Downloads/Wallpapers".source = ./config/wallpapers;
 
@@ -90,7 +110,6 @@
     };
 
     ".config/wofi".source = ./config/wofi;
-    ".config/dunst".source = ./config/dunst;
     ".config/wlogout".source = ./config/wlogout;
     ".config/kitty".source = ./config/kitty;
   };
