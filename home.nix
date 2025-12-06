@@ -19,6 +19,7 @@
     cursors.enable = true;
     fzf.enable = true;
     eza.enable = true;
+    dunst.enable = true;
   };
 
   programs.git.settings = {
@@ -64,26 +65,6 @@
     };
   };
 
-  services.dunst = {
-    enable = true;
-    settings = {
-      global = {
-        follow = "mouse";
-        width = 300;
-        notification_limit = 5;
-        progress_bar = true;
-        progress_bar_height = 10;
-        progress_bar_frame_width = 1;
-        gap_size = 5;
-        padding = 15;
-        horizontal_padding = 15;
-        frame_width = 2;
-        corner_radius = 12;
-        font = "JetBrainsMono Nerd Font 10";
-      };
-    };
-  };
-
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
@@ -92,6 +73,87 @@
     config = {
       global = {
         hide_env_diff = true;
+      };
+    };
+  };
+
+  services.dunst = {
+    enable = true;
+    settings = {
+      global = {
+        monitor = 0;
+        follow = "mouse";
+
+        # Geometry
+        width = 350;
+        height = 300;
+        origin = "top-right";
+        offset = "10x50";
+
+        # Progress bar
+        progress_bar = true;
+        progress_bar_height = 10;
+        progress_bar_frame_width = 1;
+        progress_bar_min_width = 150;
+        progress_bar_max_width = 350;
+
+        # Appearance
+        padding = 15;
+        horizontal_padding = 15;
+        text_icon_padding = 0;
+        frame_width = 2;
+        gap_size = 5;
+        separator_height = 2;
+        sort = true;
+
+        # Text
+        font = "JetBrainsMono Nerd Font 10";
+        line_height = 0;
+        markup = "full";
+        format = "<b>%s</b>\n%b";
+        alignment = "left";
+        vertical_alignment = "center";
+        show_age_threshold = 60;
+        word_wrap = true;
+        ignore_newline = false;
+        stack_duplicates = true;
+        hide_duplicate_count = false;
+        show_indicators = true;
+
+        # Icons
+        icon_position = "left";
+        min_icon_size = 32;
+        max_icon_size = 64;
+
+        # History
+        sticky_history = true;
+        history_length = 20;
+
+        # Misc
+        dmenu = "wofi -p dunst";
+        browser = "firefox";
+        always_run_script = true;
+        title = "Dunst";
+        class = "Dunst";
+        corner_radius = 12;
+        ignore_dbusclose = false;
+        force_xwayland = false;
+        force_xinerama = false;
+        mouse_left_click = "close_current";
+        mouse_middle_click = "do_action, close_current";
+        mouse_right_click = "close_all";
+      };
+
+      urgency_low = {
+        timeout = 3;
+      };
+
+      urgency_normal = {
+        timeout = 5;
+      };
+
+      urgency_critical = {
+        timeout = 0;
       };
     };
   };
