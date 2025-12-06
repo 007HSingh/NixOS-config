@@ -61,8 +61,8 @@
   home.file = {
     "Downloads/Wallpapers".source = ./config/wallpapers;
 
-    ".config/nvim/" = {
-      source = ./config/nvim;
+    ".config/nvim/lua" = {
+      source = ./config/nvim/lua;
       recursive = true;
     };
     ".config/waybar" = {
