@@ -30,7 +30,6 @@
         update = "sudo nixos-rebuild switch --flake .#nixos |& nom";
         generations = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
         clean = "sudo nix-collect-garbage -d";
-        diff-system = "nvd diff $(ls -dv /nix/var/nix/profiles/system-*-link | tail -n 2 | head -n 1) $(ls -dv /nix/var/nix/profiles/system-*-link | tail -n 1)";
       };
 
     };
