@@ -23,7 +23,7 @@
       # ============================================
       # PLUGIN MANAGER (for lazy-loading only)
       # ============================================
-      lazy-nvim # Keep for lazy-loading, but NO bootstrap
+      lazy-nvim
 
       # ============================================
       # FUZZY FINDER
@@ -186,8 +186,7 @@
       nodejs_24 # For various plugins
     ];
 
-    # Your init.lua - MASSIVELY SIMPLIFIED
-    extraLuaConfig = ''
+    extraConfig = ''
       -- Load your modular config
       require("config.options")
       require("config.keymaps")
