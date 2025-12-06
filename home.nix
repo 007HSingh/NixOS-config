@@ -38,6 +38,7 @@
   };
 
   programs.zsh = {
+    enable = true;
     initExtraFirst = ''
       source ~/.p10k.zsh
     '';
