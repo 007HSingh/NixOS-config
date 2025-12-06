@@ -5,6 +5,10 @@
 }:
 
 {
+  imports = [
+    ./config/neovim/neovim.nix
+  ];
+
   home.username = "harshs";
   home.homeDirectory = "/home/harshs";
   home.stateVersion = "25.11";

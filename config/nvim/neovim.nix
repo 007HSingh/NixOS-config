@@ -6,10 +6,11 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
+    vimdiffAlias = true;
 
     withPython3 = true;
     withNodeJs = true;
-    withRuby = false; # You don't use Ruby
+    withRuby = false;
 
     # ALL your plugins declared here
     plugins = with pkgs.vimPlugins; [
@@ -19,11 +20,6 @@
       plenary-nvim
       nvim-web-devicons
       nui-nvim
-
-      # ============================================
-      # PLUGIN MANAGER (for lazy-loading only)
-      # ============================================
-      lazy-nvim
 
       # ============================================
       # FUZZY FINDER
@@ -50,6 +46,9 @@
         p.css
         p.javascript
         p.typescript
+        p.regex
+        p.vim
+        p.vimdoc
       ]))
       nvim-treesitter-context
       nvim-treesitter-textobjects
@@ -162,14 +161,13 @@
       nodePackages.prettier
 
       # ===== LINTERS =====
-      # ruff does both format + lint for Python
-      checkstyle # Java
+      checkstyle
       luajitPackages.luacheck
 
       # ===== DEBUGGERS =====
-      python312Packages.debugpy
+      python3Packages.debugpy
 
-      # ===== TREESITTER (CLI for queries) =====
+      # ===== TREESITTER =====
       tree-sitter
 
       # ===== TELESCOPE DEPENDENCIES =====
@@ -178,15 +176,15 @@
 
       # ===== GIT =====
       lazygit
-      delta # Better git diffs
+      delta
 
       # ===== OTHER =====
-      gcc # For Treesitter compilation (shouldn't need but safety)
+      gcc
       gnumake
-      nodejs_24 # For various plugins
+      nodejs_24
     ];
 
-    configure = ''
+    extraLuaConfig = ''
       -- Load your modular config
       require("config.options")
       require("config.keymaps")
