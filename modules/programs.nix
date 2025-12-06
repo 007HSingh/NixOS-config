@@ -12,16 +12,6 @@
       };
       syntaxHighlighting.enable = true;
 
-      initExtraFirst = ''
-        source ~/.p10k.zsh
-      '';
-      initExtra = ''
-        eval "$(zoxide init zsh)"
-
-        source ${pkgs.fzf}/share/fzf/key-bindings.zsh
-        source ${pkgs.fzf}/share/fzf/completion.zsh
-      '';
-
       plugins = [
         {
           name = "powerlevel10k";

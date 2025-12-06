@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   ...
 }:
 
@@ -33,6 +34,16 @@
   };
 
   programs.zsh = {
+    initExtraFirst = ''
+      source ~/.p10k.zsh
+    '';
+    initExtra = ''
+      eval "$(zoxide init zsh)"
+
+      source ${pkgs.fzf}/share/fzf/key-bindings.zsh
+      source ${pkgs.fzf}/share/fzf/completion.zsh
+    '';
+
     history = {
       size = 10000;
       path = "${config.home.homeDirectory}/.zsh_history";
