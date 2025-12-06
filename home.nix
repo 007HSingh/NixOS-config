@@ -18,6 +18,7 @@
   catppuccin = {
     cursors.enable = true;
     fzf.enable = true;
+    eza.enable = true;
   };
 
   programs.git.settings = {
