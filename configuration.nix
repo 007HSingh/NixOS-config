@@ -25,7 +25,6 @@
     ./modules/virtualisation/docker.nix
     ./modules/fonts.nix
     ./modules/system/polkit.nix
-    ./modules/programs/neovim.nix
   ];
 
   xdg.portal = {
