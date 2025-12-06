@@ -6,7 +6,7 @@
 
 {
   imports = [
-    ./config/neovim/neovim.nix
+    ./config/nvim/neovim.nix
   ];
 
   home.username = "harshs";
