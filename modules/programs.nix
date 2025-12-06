@@ -15,7 +15,7 @@
       initExtraFirst = ''
         source ~/.p10k.zsh
       '';
-      initContent = ''
+      initExtra = ''
         eval "$(zoxide init zsh)"
 
         source ${pkgs.fzf}/share/fzf/key-bindings.zsh
