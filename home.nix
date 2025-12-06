@@ -73,8 +73,17 @@
 
     };
     ".config/hypr" = {
-      source = ./config/hyprland;
+      source = ./config/hypr/hyprland;
       recursive = true;
+    };
+
+    ".config/hypr/scripts/check-caps.sh" = {
+      source = ./config/hypr/scripts/check-caps.sh;
+      executable = true;
+    };
+    ".config/hypr/scripts/battery-status.sh" = {
+      source = ./config/hypr/scripts/battery-status.sh;
+      executable = true;
     };
 
     ".config/wofi".source = ./config/wofi;
