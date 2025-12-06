@@ -186,7 +186,7 @@
       nodejs_24 # For various plugins
     ];
 
-    extraConfig = ''
+    configure = ''
       -- Load your modular config
       require("config.options")
       require("config.keymaps")
