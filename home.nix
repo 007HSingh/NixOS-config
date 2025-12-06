@@ -36,30 +36,6 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    syntaxHighlighting.enable = true;
-
-    ohMyZsh = {
-      enable = true;
-      plugins = [
-        "git"
-        "sudo"
-        "docker"
-        "kubectl"
-        "colored-man-pages"
-      ];
-    };
-
-    shellAliases = {
-      ls = "eza --icons";
-      ll = "eza -la --icons";
-      cat = "bat";
-      cd = "z";
-      update = "sudo nixos-rebuild switch --flake .#nixos";
-      hm-update = "home-manager switch --flake .#harshs";
-      generations = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
-      clean = "sudo nix-collect-garbage -d && sudo nix-store --optimise";
-    };
-
     initExtraFirst = ''
       source ~/.p10k.zsh
     '';
