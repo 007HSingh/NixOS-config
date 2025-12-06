@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   ...
 }:
 
@@ -30,6 +29,13 @@
       br = "branch";
       ci = "commit";
       lg = "log --oneline --graph --decorate";
+    };
+  };
+
+  programs.zsh = {
+    history = {
+      size = 10000;
+      path = "${config.home.homeDirectory}/.zsh_history";
     };
   };
 

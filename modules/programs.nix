@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   programs = {
@@ -29,11 +29,6 @@
           file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
         }
       ];
-
-      history = {
-        size = 10000;
-        path = "${config.home.homeDirectory}/.zsh_history";
-      };
 
       ohMyZsh = {
         enable = true;
