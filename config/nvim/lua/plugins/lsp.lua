@@ -216,6 +216,7 @@ require("conform").setup({
 		markdown = { "prettier" },
 		json = { "prettier" },
 		yaml = { "prettier" },
+		rust = { "rustfmt" },
 	},
 	format_on_save = {
 		timeout_ms = 500,
@@ -229,6 +230,7 @@ lint.linters_by_ft = {
 	python = { "ruff", "mypy" },
 	java = { "checkstyle" },
 	lua = { "luacheck" },
+	rust = { "clippy" },
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
