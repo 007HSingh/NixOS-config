@@ -14,6 +14,7 @@
 
     # Media
     spotify
+    vlc
 
     # Document viewer
     kdePackages.okular
