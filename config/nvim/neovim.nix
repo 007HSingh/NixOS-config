@@ -173,7 +173,7 @@
       vscode-extensions.vadimcn.vscode-lldb
 
       # ==== TESTING ====
-      neotest-rust
+      vimPlugins.neotest-rust
 
       # ===== TREESITTER =====
       tree-sitter
