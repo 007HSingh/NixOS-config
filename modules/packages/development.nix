@@ -16,7 +16,7 @@
     # Rust tools
     rustc
     cargo
-    rust-src
+    rustup
 
     # Python
     python313
