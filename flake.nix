@@ -13,11 +13,6 @@
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -39,8 +34,6 @@
 
             catppuccin.nixosModules.catppuccin
 
-            niri.nixosModules.niri
-
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -49,7 +42,6 @@
                 imports = [
                   ./home.nix
                   catppuccin.homeModules.catppuccin
-                  niri.nixosModules.niri
                 ];
               };
               home-manager.backupFileExtension = "backup";
