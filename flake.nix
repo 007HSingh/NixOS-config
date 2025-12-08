@@ -13,6 +13,11 @@
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    niri = {
+      url = "github:YaLTeR/niri";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -21,6 +26,7 @@
       nixpkgs,
       catppuccin,
       home-manager,
+      niri,
       ...
     }@inputs:
     {
@@ -33,6 +39,8 @@
 
             catppuccin.nixosModules.catppuccin
 
+            niri.nixosModules.niri
+
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -41,6 +49,7 @@
                 imports = [
                   ./home.nix
                   catppuccin.homeModules.catppuccin
+                  niri.nixosModules.niri
                 ];
               };
               home-manager.backupFileExtension = "backup";
