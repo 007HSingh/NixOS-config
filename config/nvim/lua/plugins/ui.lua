@@ -205,7 +205,7 @@ wk.setup({
 -- Which-key mappings
 wk.add({
 	-- File operations
-	{ "<leader>f", group = "📁 Find", icon = "" },
+	{ "<leader>f", group = "Find", icon = "" },
 	{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Files", icon = "" },
 	{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Grep", icon = "" },
 	{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers", icon = "" },
@@ -216,7 +216,7 @@ wk.add({
 	{ "<leader>fm", "<cmd>Telescope marks<cr>", desc = "Marks", icon = "" },
 
 	-- Git operations
-	{ "<leader>g", group = "🔀 Git", icon = "" },
+	{ "<leader>g", group = "Git", icon = "" },
 	{ "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit", icon = "" },
 	{ "<leader>gG", "<cmd>Git<cr>", desc = "Git Status", icon = "" },
 	{ "<leader>gc", "<cmd>Git commit<cr>", desc = "Commit", icon = "" },
@@ -228,10 +228,10 @@ wk.add({
 	{ "<leader>gC", "<cmd>DiffviewClose<cr>", desc = "Close Diffview", icon = "" },
 
 	-- Git hunks
-	{ "<leader>h", group = "📄 Git Hunks", icon = "" },
+	{ "<leader>h", group = "Git Hunks", icon = "" },
 
 	-- LSP operations
-	{ "<leader>l", group = "💡 LSP", icon = "" },
+	{ "<leader>l", group = "LSP", icon = "" },
 	{
 		"<leader>ld",
 		function()
@@ -287,7 +287,7 @@ wk.add({
 	},
 
 	-- Debugging (DAP)
-	{ "<leader>d", group = "🐛 Debug", icon = "" },
+	{ "<leader>d", group = "Debug", icon = "" },
 	{
 		"<leader>db",
 		function()
@@ -379,7 +379,7 @@ wk.add({
 	},
 
 	-- Testing (Neotest)
-	{ "<leader>T", group = "🧪 Test", icon = "" },
+	{ "<leader>T", group = "Test", icon = "" },
 	{
 		"<leader>Tr",
 		function()
@@ -466,7 +466,7 @@ wk.add({
 	{ "<leader>co", "<cmd>AerialToggle<cr>", desc = "Code Outline", icon = "" },
 
 	-- Buffer operations
-	{ "<leader>b", group = "📄 Buffer", icon = "" },
+	{ "<leader>b", group = "Buffer", icon = "" },
 	{ "<leader>bd", "<cmd>bdelete<cr>", desc = "Delete Buffer", icon = "" },
 	{ "<leader>bn", "<cmd>bnext<cr>", desc = "Next Buffer", icon = "" },
 	{ "<leader>bp", "<cmd>bprevious<cr>", desc = "Previous Buffer", icon = "" },
@@ -478,7 +478,7 @@ wk.add({
 	{ "<leader>o", "<cmd>NvimTreeFocus<cr>", desc = "Focus Explorer", icon = "" },
 
 	-- Diagnostics (Trouble)
-	{ "<leader>x", group = "🚨 Trouble", icon = "" },
+	{ "<leader>x", group = "Trouble", icon = "" },
 	{ "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics", icon = "" },
 	{ "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics", icon = "" },
 	{ "<leader>xs", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols", icon = "" },
@@ -487,14 +487,14 @@ wk.add({
 	{ "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List", icon = "" },
 
 	-- Terminal
-	{ "<leader>t", group = "💻 Terminal", icon = "" },
+	{ "<leader>t", group = "Terminal", icon = "" },
 	{ "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Float", icon = "" },
 	{ "<leader>th", "<cmd>ToggleTerm direction=horizontal<cr>", desc = "Horizontal", icon = "" },
 	{ "<leader>tv", "<cmd>ToggleTerm direction=vertical<cr>", desc = "Vertical", icon = "" },
 	{ "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "Toggle", icon = "" },
 
 	-- Session management
-	{ "<leader>s", group = "💾 Session", icon = "" },
+	{ "<leader>s", group = "Session", icon = "" },
 	{
 		"<leader>ss",
 		function()
@@ -521,14 +521,14 @@ wk.add({
 	},
 
 	-- Markdown preview
-	{ "<leader>m", group = "📝 Markdown", icon = "" },
+	{ "<leader>m", group = "Markdown", icon = "" },
 	{ "<leader>mp", "<cmd>MarkdownPreview<cr>", desc = "Preview", icon = "" },
 	{ "<leader>ms", "<cmd>MarkdownPreviewStop<cr>", desc = "Stop Preview", icon = "" },
 	{ "<leader>mt", "<cmd>MarkdownPreviewToggle<cr>", desc = "Toggle Preview", icon = "" },
 
 	-- Misc
-	{ "<leader>w", "<cmd>w<CR>", desc = "💾 Save", icon = "" },
-	{ "<leader>q", "<cmd>q<CR>", desc = "🚪 Quit", icon = "" },
-	{ "<leader>Q", "<cmd>qa!<CR>", desc = "⚠️  Quit All", icon = "" },
-	{ "<leader>z", "<cmd>ZenMode<cr>", desc = "🧘 Zen Mode", icon = "" },
+	{ "<leader>w", "<cmd>w<CR>", desc = "Save", icon = "" },
+	{ "<leader>q", "<cmd>q<CR>", desc = "Quit", icon = "" },
+	{ "<leader>Q", "<cmd>qa!<CR>", desc = "Quit All", icon = "" },
+	{ "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode", icon = "" },
 })
