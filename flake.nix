@@ -21,7 +21,6 @@
       nixpkgs,
       catppuccin,
       home-manager,
-      niri,
       ...
     }@inputs:
     {
