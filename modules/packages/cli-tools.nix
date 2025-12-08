@@ -39,11 +39,5 @@
     nps
     nix-output-monitor
 
-    # Language tools
-    gcc
-    gnumake
-    nodejs_24
-    rustc
-    cargo
   ];
 }

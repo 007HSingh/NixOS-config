@@ -5,8 +5,18 @@
     # Version control
     gh
 
-    # Build tools
+    # C tools
+    gcc
+    gnumake
     gdb
+
+    # NodeJs
+    nodejs_24
+
+    # Rust tools
+    rustc
+    cargo
+    rust-src
 
     # Python
     python313
