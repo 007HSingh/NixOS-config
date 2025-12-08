@@ -170,7 +170,7 @@
       # ===== DEBUGGERS =====
       python3Packages.debugpy
       lldb
-      vscode-extensions.vadicm.vscode-lldb
+      vscode-extensions.vadimcn.vscode-lldb
 
       # ==== TESTING ====
       neotest-rust
