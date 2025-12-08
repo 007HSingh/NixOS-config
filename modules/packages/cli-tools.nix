@@ -39,5 +39,6 @@
     nps
     nix-output-monitor
 
+    yt-dlp
   ];
 }
