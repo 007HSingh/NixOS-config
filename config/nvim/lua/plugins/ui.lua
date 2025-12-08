@@ -294,7 +294,7 @@ wk.add({
 			require("dap").toggle_breakpoint()
 		end,
 		desc = "Toggle Breakpoint",
-		icon = "🔴",
+		icon = "",
 	},
 	{
 		"<leader>dB",
@@ -302,7 +302,7 @@ wk.add({
 			require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
 		end,
 		desc = "Conditional Breakpoint",
-		icon = "🟡",
+		icon = "",
 	},
 	{
 		"<leader>dc",
@@ -310,7 +310,7 @@ wk.add({
 			require("dap").continue()
 		end,
 		desc = "Continue",
-		icon = "▶️",
+		icon = "",
 	},
 	{
 		"<leader>di",
@@ -318,7 +318,7 @@ wk.add({
 			require("dap").step_into()
 		end,
 		desc = "Step Into",
-		icon = "⬇️",
+		icon = "",
 	},
 	{
 		"<leader>do",
@@ -326,7 +326,7 @@ wk.add({
 			require("dap").step_over()
 		end,
 		desc = "Step Over",
-		icon = "➡️",
+		icon = "",
 	},
 	{
 		"<leader>dO",
@@ -334,7 +334,7 @@ wk.add({
 			require("dap").step_out()
 		end,
 		desc = "Step Out",
-		icon = "⬆️",
+		icon = "",
 	},
 	{
 		"<leader>dr",
@@ -358,7 +358,7 @@ wk.add({
 			require("dap").terminate()
 		end,
 		desc = "Terminate",
-		icon = "⏹️",
+		icon = "",
 	},
 	{
 		"<leader>du",
@@ -446,7 +446,7 @@ wk.add({
 	},
 
 	-- Code operations
-	{ "<leader>c", group = "💻 Code", icon = "" },
+	{ "<leader>c", group = "Code", icon = "" },
 	{
 		"<leader>cf",
 		function()
@@ -474,7 +474,7 @@ wk.add({
 	{ "<leader>bb", "<cmd>Telescope buffers<cr>", desc = "Find Buffer", icon = "" },
 
 	-- File explorer
-	{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "📁 File Explorer", icon = "" },
+	{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "File Explorer", icon = "" },
 	{ "<leader>o", "<cmd>NvimTreeFocus<cr>", desc = "Focus Explorer", icon = "" },
 
 	-- Diagnostics (Trouble)
