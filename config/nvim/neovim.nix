@@ -152,6 +152,7 @@
       lua-language-server
       nil # Nix LSP
       clang-tools # Includes clangd
+      rust-analyzer
 
       # ===== FORMATTERS =====
       ruff
@@ -159,10 +160,12 @@
       stylua
       nixfmt-rfc-style
       nodePackages.prettier
+      rustfmt
 
       # ===== LINTERS =====
       checkstyle
       luajitPackages.luacheck
+      clippy
 
       # ===== DEBUGGERS =====
       python3Packages.debugpy
@@ -182,6 +185,8 @@
       gcc
       gnumake
       nodejs_24
+      cargo
+      rustc
     ];
 
     extraLuaConfig = ''

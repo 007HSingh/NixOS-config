@@ -17,6 +17,7 @@
     ./modules/system/hardware.nix
     ./modules/system/nix-features.nix
     ./modules/desktop/hyprland.nix
+    ./modules/desktop/niri.nix
     ./modules/desktop/sddm.nix
     ./modules/services/audio.nix
     ./modules/users/harshs.nix
