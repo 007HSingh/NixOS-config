@@ -24,7 +24,7 @@
     stylua
 
     # Editor/IDE
-    vscode-fhs
+    zed-editor-fhs
 
     # Jupyter
     jupyter
