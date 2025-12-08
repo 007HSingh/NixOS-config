@@ -151,7 +151,7 @@
       jdt-language-server
       lua-language-server
       nil # Nix LSP
-      clang-tools # Includes clangd
+      clang-tools
       rust-analyzer
 
       # ===== FORMATTERS =====
@@ -182,13 +182,6 @@
       # ===== GIT =====
       lazygit
       delta
-
-      # ===== OTHER =====
-      gcc
-      gnumake
-      nodejs_24
-      cargo
-      rustc
     ];
 
     extraLuaConfig = ''
