@@ -36,7 +36,7 @@
 
     # System management
     nvd
-
+    nps
     nix-output-monitor
   ];
 }
