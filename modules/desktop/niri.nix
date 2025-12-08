@@ -6,7 +6,7 @@
 {
   programs.niri.enable = true;
 
-  environment.systemPackges = with pkgs; [
+  environment.systemPackages = with pkgs; [
     niri
     xwayland-satellite
   ];
