@@ -169,6 +169,11 @@
 
       # ===== DEBUGGERS =====
       python3Packages.debugpy
+      lldb
+      vscode-extensions.vadicm.vscode-lldb
+
+      # ==== TESTING ====
+      neotest-rust
 
       # ===== TREESITTER =====
       tree-sitter

@@ -10,6 +10,10 @@ require("neotest").setup({
 			runner = "pytest",
 		}),
 		require("neotest-plenary"),
+		require("neotest-rust")({
+			args = { "--no-capture" },
+			dap_adapter = "codelldb",
+		}),
 	},
 	status = {
 		virtual_text = true,

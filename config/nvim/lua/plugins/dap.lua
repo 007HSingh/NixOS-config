@@ -64,6 +64,42 @@ end
 require("dap-python").setup("python3")
 
 -- ============================================================================
+-- RUST DAP CONFIGURATION
+-- ============================================================================
+
+dap.adapters.codelldb = {
+	type = "server",
+	port = "${port}",
+	executable = {
+		command = "codelldb",
+		args = { "--port", "${port}" },
+	},
+}
+
+dap.configurations.rust = {
+	{
+		name = "Launch file",
+		type = "codelldb",
+		request = "launch",
+		program = function()
+			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+		end,
+		cwd = "${workspaceFolder}",
+		stopOnEntry = false,
+	},
+	{
+		name = "Launch test",
+		type = "codelldb",
+		request = "launch",
+		program = function()
+			return vim.fn.input("Path to test executable: ", vim.fn.getcwd() .. "/target/debug/deps/", "file")
+		end,
+		cwd = "${workspaceFolder}",
+		stopOnEntry = false,
+	},
+}
+
+-- ============================================================================
 -- DAP SIGNS
 -- ============================================================================
 local signs = {
