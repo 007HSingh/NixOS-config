@@ -55,7 +55,7 @@
                   ./modules/theming/nixvim.nix
                   catppuccin.homeModules.catppuccin
                   inputs.spicetify-nix.homeManagerModules.default
-                  nixvim.homeManagerModules.nixvim
+                  nixvim.homeModules.nixvim
                 ];
               };
               home-manager.backupFileExtension = "backup";
