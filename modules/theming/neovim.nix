@@ -267,25 +267,25 @@
           mode = "n";
           key = "<C-h>";
           action = "<C-w>h";
-          options.desc = "Navigate to left window";
+          desc = "Navigate to left window";
         }
         {
           mode = "n";
           key = "<C-j>";
           action = "<C-w>j";
-          options.desc = "Navigate to bottom window";
+          desc = "Navigate to bottom window";
         }
         {
           mode = "n";
           key = "<C-k>";
           action = "<C-w>k";
-          options.desc = "Navigate to top window";
+          desc = "Navigate to top window";
         }
         {
           mode = "n";
           key = "<C-l>";
           action = "<C-w>l";
-          options.desc = "Navigate to right window";
+          desc = "Navigate to right window";
         }
 
         # Resize Windows
@@ -293,25 +293,25 @@
           mode = "n";
           key = "<C-Up>";
           action = ":resize -2<CR>";
-          options.desc = "Resize window up";
+          desc = "Resize window up";
         }
         {
           mode = "n";
           key = "<C-Down>";
           action = ":resize +2<CR>";
-          options.desc = "Resize window down";
+          desc = "Resize window down";
         }
         {
           mode = "n";
           key = "<C-Left>";
           action = ":vertical resize -2<CR>";
-          options.desc = "Resize window left";
+          desc = "Resize window left";
         }
         {
           mode = "n";
           key = "<C-Right>";
           action = ":vertical resize +2<CR>";
-          options.desc = "Resize window right";
+          desc = "Resize window right";
         }
 
         # Quick Save/Quit
@@ -319,13 +319,13 @@
           mode = "n";
           key = "<leader>w";
           action = ":w<CR>";
-          options.desc = "Save file";
+          desc = "Save file";
         }
         {
           mode = "n";
           key = "<leader>q";
           action = ":q<CR>";
-          options.desc = "Quit";
+          desc = "Quit";
         }
 
         # Clear Highlights
@@ -333,7 +333,7 @@
           mode = "n";
           key = "<leader>nh";
           action = ":nohlsearch<CR>";
-          options.desc = "Clear highlights";
+          desc = "Clear highlights";
         }
 
         # Better Indenting (Normal)
@@ -341,13 +341,13 @@
           mode = "n";
           key = "<";
           action = "<<";
-          options.desc = "Indent left";
+          desc = "Indent left";
         }
         {
           mode = "n";
           key = ">";
           action = ">>";
-          options.desc = "Indent right";
+          desc = "Indent right";
         }
 
         # Better Indenting (Visual)
@@ -355,13 +355,13 @@
           mode = "v";
           key = "<";
           action = "<gv";
-          options.desc = "Indent left and reselect";
+          desc = "Indent left and reselect";
         }
         {
           mode = "v";
           key = ">";
           action = ">gv";
-          options.desc = "Indent right and reselect";
+          desc = "Indent right and reselect";
         }
 
         # Move Text Up and Down (Visual)
@@ -369,13 +369,13 @@
           mode = "v";
           key = "J";
           action = ":m '>+1<CR>gv=gv";
-          options.desc = "Move text down";
+          desc = "Move text down";
         }
         {
           mode = "v";
           key = "K";
           action = ":m '<-2<CR>gv=gv";
-          options.desc = "Move text up";
+          desc = "Move text up";
         }
 
         # File Explorer
@@ -383,7 +383,7 @@
           mode = "n";
           key = "<leader>e";
           action = ":Neotree toggle<CR>";
-          options.desc = "Toggle file explorer";
+          desc = "Toggle file explorer";
         }
 
         # Terminal
@@ -391,7 +391,7 @@
           mode = "n";
           key = "<C-t>";
           action = ":ToggleTerm<CR>";
-          options.desc = "Toggle terminal";
+          desc = "Toggle terminal";
         }
       ];
     };
