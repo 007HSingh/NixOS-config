@@ -13,6 +13,11 @@
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    spicetify-nix = {
+      url = "github:Gerg-L/spitecify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -21,6 +26,7 @@
       nixpkgs,
       catppuccin,
       home-manager,
+      spicetify-nix,
       ...
     }@inputs:
     {
@@ -41,6 +47,7 @@
                 imports = [
                   ./home.nix
                   catppuccin.homeModules.catppuccin
+                  inputs.spicetify-nix.homeManagerModules.default
                 ];
               };
               home-manager.backupFileExtension = "backup";
