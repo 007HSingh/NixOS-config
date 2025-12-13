@@ -39,6 +39,10 @@
     nps
     nix-output-monitor
 
+    # Youtube videos downloader
     yt-dlp
+
+    # Spotify client
+    spicetify-cli
   ];
 }
