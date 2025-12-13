@@ -87,8 +87,8 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1765631152,
-        "narHash": "sha256-J2OfuEqIvoFEwsZHi+hwKTCRbSDkjQ8OZVpwi1MEafo=",
+        "lastModified": 1765631268,
+        "narHash": "sha256-XRs/zZsIQoSJiHCVB1RkR4gd0CCutoidBPBn0jTjM+A=",
         "path": "/home/harshs/kickstart.nixvim",
         "type": "path"
       },
