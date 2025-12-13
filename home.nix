@@ -6,10 +6,6 @@
 }:
 
 {
-  imports = [
-    ./config/nvim/neovim.nix
-  ];
-
   home.username = "harshs";
   home.homeDirectory = "/home/harshs";
   home.stateVersion = "25.11";
@@ -187,10 +183,6 @@
   home.file = {
     "Downloads/Wallpapers".source = ./config/wallpapers;
 
-    ".config/nvim/lua" = {
-      source = ./config/nvim/lua;
-      recursive = true;
-    };
     ".config/waybar" = {
       source = ./config/waybar;
       recursive = true;
