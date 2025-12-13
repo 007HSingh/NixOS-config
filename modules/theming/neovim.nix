@@ -242,11 +242,11 @@
 
         smartcolumn = {
           enable = true;
-          columnAt.languages = {
-            nix = 100;
-            rust = 100;
-            python = 88;
-            java = 120;
+          setupOpts.custom_colorcolumn = {
+            nix = "100";
+            rust = "100";
+            python = "88";
+            java = "120";
           };
         };
       };
