@@ -89,17 +89,14 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1761107400,
-        "narHash": "sha256-WYurMXvMkDxWc9PDt0hKZoAfoV9lVXw6vq13xN5VA/U=",
-        "owner": "JMartJonesy",
-        "repo": "kickstart.nixvim",
-        "rev": "df53a8c9456c7ae2df85ddbac33b0e9e36ad4b55",
-        "type": "github"
+        "lastModified": 1765627839,
+        "narHash": "sha256-+J2swXHLawehmOsGaDKkH8DTeZ9y0vb55rxKtU0xvBE=",
+        "path": "/home/harshs/kickstart.nixvim",
+        "type": "path"
       },
       "original": {
-        "owner": "JMartJonesy",
-        "repo": "kickstart.nixvim",
-        "type": "github"
+        "path": "/home/harshs/kickstart.nixvim",
+        "type": "path"
       }
     },
     "nixpkgs": {
