@@ -554,15 +554,7 @@
               runBuildScripts = true;
             };
             procMacro.enable = true;
-            checkOnSave = {
-              command = "clippy";
-              extraArgs = [
-                "--all"
-                "--"
-                "-W"
-                "clippy::all"
-              ];
-            };
+            checkOnSave = true;
           };
         };
       };
