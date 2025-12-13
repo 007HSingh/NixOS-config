@@ -12,6 +12,7 @@
 
     # LSP
     nil
+    nixd
 
     # NodeJs
     nodejs_24

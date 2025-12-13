@@ -14,6 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    }
+
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,6 +32,7 @@
       catppuccin,
       home-manager,
       spicetify-nix,
+      nvf,
       ...
     }@inputs:
     {
@@ -38,6 +44,8 @@
             ./configuration.nix
 
             catppuccin.nixosModules.catppuccin
+
+            nvf.nixosModules.default
 
             home-manager.nixosModules.home-manager
             {
