@@ -11,8 +11,8 @@
     tree
 
     # Modern CLI tools
-    eza # Modern ls
-    bat # Modern cat
+    eza
+    bat
     zoxide # Smart cd
     ripgrep # Fast grep
     fd # Fast find
@@ -41,8 +41,5 @@
 
     # Youtube videos downloader
     yt-dlp
-
-    # Spotify client
-    spicetify-cli
   ];
 }
