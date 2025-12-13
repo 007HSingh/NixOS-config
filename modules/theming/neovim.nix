@@ -11,188 +11,91 @@
       # Core Settings
       viAlias = true;
       vimAlias = true;
-      debugMode = {
-        enable = false;
-        level = 16;
-        logFile = "/tmp/nvim.log";
+
+      # Vim Options
+      options = {
+        number = true;
+        relativenumber = true;
+        clipboard = "unnamedplus";
+        mouse = "a";
+        showmode = false;
+        cmdheight = 1;
+        updatetime = 300;
+        signcolumn = "yes";
+        timeoutlen = 500;
+        ignorecase = true;
+        smartcase = true;
+        expandtab = true;
+        shiftwidth = 2;
+        tabstop = 2;
+        smartindent = true;
+        wrap = false;
+        swapfile = false;
+        backup = false;
+        undofile = true;
+        termguicolors = true;
+        scrolloff = 8;
+        sidescrolloff = 8;
+        cursorline = true;
+        splitbelow = true;
+        splitright = true;
       };
 
-      # Spellcheck
-      spellcheck = {
-        enable = true;
-        languages = ["en"];
-      };
-
-      # Line Numbers & Visual Enhancements
-      lineNumberMode = "relNumber";
-      useSystemClipboard = true;
-      preventJunkFiles = true;
-      cmdHeight = 1;
-      updateTime = 300;
-      showSignColumn = true;
-      bell = "none";
-      mapTimeout = 500;
-
-      # Search Settings
-      searchCase = "smart";
-
-      # Undo & Backup
-      undoFile = {
-        enable = true;
-      };
-
-      # Mouse Support
-      mouse = {
-        enable = true;
-        support = "a";
+      # Global Variables
+      globals = {
+        mapleader = " ";
+        maplocalleader = " ";
       };
 
       # Dashboard
-      dashboard.alpha = {
-        enable = true;
-      };
+      dashboard.alpha.enable = true;
 
       # Theme
       theme = {
         enable = true;
         name = "catppuccin";
         style = "mocha";
-        transparent = false;
       };
 
       # Statusline
       statusline.lualine = {
         enable = true;
         theme = "catppuccin";
-        icons.enable = true;
         globalStatus = true;
-        refresh = {
-          statusline = 100;
-          tabline = 100;
-          winbar = 100;
-        };
       };
 
       # Tabline
-      tabline.nvimBufferline = {
-        enable = true;
-        mappings = {
-          closeCurrent = "<leader>bc";
-          cycleNext = "<TAB>";
-          cyclePrevious = "<S-TAB>";
-          pick = "<leader>bp";
-          sortByExtension = "<leader>bse";
-          sortByDirectory = "<leader>bsd";
-          moveNext = "<leader>bmn";
-          movePrevious = "<leader>bmp";
-        };
-      };
+      tabline.nvimBufferline.enable = true;
 
-      # Treesitter - Enhanced Syntax Highlighting
+      # Treesitter
       treesitter = {
         enable = true;
         fold = true;
         context.enable = true;
-        highlight.enable = true;
-        indent.enable = true;
-        autotagHtml = true;
       };
 
-      # Telescope - Fuzzy Finder
-      telescope = {
-        enable = true;
-        mappings = {
-          findFiles = "<leader>ff";
-          liveGrep = "<leader>fg";
-          buffers = "<leader>fb";
-          helpTags = "<leader>fh";
-          open = "<leader>ft";
-          gitCommits = "<leader>gc";
-          gitBufferCommits = "<leader>gbc";
-          gitBranches = "<leader>gb";
-          gitStatus = "<leader>gs";
-          gitStash = "<leader>gx";
-        };
-      };
+      # Telescope
+      telescope.enable = true;
 
       # Autocomplete
-      autocomplete.nvim-cmp = {
-        enable = true;
-        mappings = {
-          complete = "<C-Space>";
-          confirm = "<CR>";
-          next = "<Tab>";
-          previous = "<S-Tab>";
-          close = "<C-e>";
-          scrollDocsUp = "<C-u>";
-          scrollDocsDown = "<C-d>";
-        };
-        sources = {
-          nvim-cmp = true;
-          buffer = true;
-          path = true;
-          nvim_lsp = true;
-          luasnip = true;
-        };
-      };
+      autocomplete.nvim-cmp.enable = true;
 
       # Snippets
-      snippets.luasnip = {
-        enable = true;
-      };
+      snippets.luasnip.enable = true;
 
-      # LSP Configuration
+      # LSP
       lsp = {
         enable = true;
         formatOnSave = true;
         lspkind.enable = true;
         lightbulb.enable = true;
         lsplines.enable = true;
-        nvimCodeActionMenu.enable = true;
-
-        mappings = {
-          goToDeclaration = "gD";
-          goToDefinition = "gd";
-          goToType = "gt";
-          listImplementations = "gi";
-          listReferences = "gr";
-          nextDiagnostic = "]d";
-          previousDiagnostic = "[d";
-          openDiagnosticFloat = "<leader>e";
-          documentHighlight = "<leader>h";
-          listDocumentSymbols = "<leader>ds";
-          addWorkspaceFolder = "<leader>wa";
-          removeWorkspaceFolder = "<leader>wr";
-          listWorkspaceFolders = "<leader>wl";
-          listWorkspaceSymbols = "<leader>ws";
-          hover = "K";
-          signatureHelp = "<C-k>";
-          renameSymbol = "<leader>rn";
-          codeAction = "<leader>ca";
-          format = "<leader>f";
-        };
       };
 
-      # Debugger (DAP)
+      # DAP Debugger
       debugger.nvim-dap = {
         enable = true;
         ui.enable = true;
-        mappings = {
-          continue = "<leader>dc";
-          restart = "<leader>dr";
-          terminate = "<leader>dq";
-          runLast = "<leader>d.";
-          toggleRepl = "<leader>dR";
-          hover = "<leader>dh";
-          toggleBreakpoint = "<leader>db";
-          runToCursor = "<leader>dgc";
-          stepInto = "<leader>di";
-          stepOut = "<leader>do";
-          stepOver = "<leader>dO";
-          stepBack = "<leader>dB";
-          goUp = "<leader>du";
-          goDown = "<leader>dd";
-        };
       };
 
       # Language Support
@@ -202,7 +105,6 @@
         enableTreesitter = true;
         enableExtraDiagnostics = true;
 
-        # System Languages
         nix = {
           enable = true;
           format.enable = true;
@@ -223,7 +125,6 @@
           treesitter.enable = true;
         };
 
-        # Systems Programming
         clang = {
           enable = true;
           lsp.enable = true;
@@ -239,7 +140,6 @@
           dap.enable = true;
         };
 
-        # Application Development
         java = {
           enable = true;
           lsp.enable = true;
@@ -262,7 +162,6 @@
           dap.enable = true;
         };
 
-        # Web Development
         ts = {
           enable = true;
           lsp.enable = true;
@@ -287,7 +186,6 @@
           lsp.enable = true;
         };
 
-        # Data & Config
         sql = {
           enable = true;
           lsp.enable = true;
@@ -304,99 +202,38 @@
       # Git Integration
       git = {
         enable = true;
-        gitsigns = {
-          enable = true;
-          mappings = {
-            nextHunk = "]c";
-            previousHunk = "[c";
-            stageHunk = "<leader>hs";
-            resetHunk = "<leader>hr";
-            undoStageHunk = "<leader>hu";
-            stageBuffer = "<leader>hS";
-            resetBuffer = "<leader>hR";
-            previewHunk = "<leader>hp";
-            blameLine = "<leader>hb";
-            diffThis = "<leader>hd";
-            diffProject = "<leader>hD";
-            toggleBlame = "<leader>tb";
-            toggleDeleted = "<leader>td";
-          };
-        };
+        gitsigns.enable = true;
       };
 
       # File Tree
-      filetree.neo-tree = {
-        enable = true;
-        mappings = {
-          toggle = "<leader>e";
-          focus = "<leader>o";
-          findFile = "<leader>n";
-          refresh = "<leader>r";
-        };
-      };
+      filetree.neo-tree.enable = true;
 
       # Terminal
       terminal.toggleterm = {
         enable = true;
-        mappings = {
-          open = "<C-t>";
-        };
         direction = "horizontal";
         enable_winbar = false;
       };
 
       # Notifications
-      notify.nvim-notify = {
-        enable = true;
-        background_colour = "#000000";
-        timeout = 3000;
-      };
+      notify.nvim-notify.enable = true;
 
       # Utility Plugins
       utility = {
-        # Session Management
-        vim-wakatime.enable = false;
-
-        # Color Highlighter
         ccc.enable = true;
-
-        # Image Viewing
-        image-nvim.enable = false;
-
-        # Markdown Preview
         preview.markdownPreview.enable = true;
-
-        # Icons
         icon-picker.enable = true;
-
-        # Surround
         surround.enable = true;
-
-        # Diffview
         diffview-nvim.enable = true;
+        motion.leap.enable = true;
 
-        # Motion
-        leap.enable = true;
-
-        # Comments
-        comment.comment-nvim = {
-          enable = true;
-          mappings = {
-            toggleCurrentLine = "gcc";
-            toggleCurrentBlock = "gbc";
-            toggleOpLeaderLine = "gc";
-            toggleOpLeaderBlock = "gb";
-            toggleSelectedLine = "gc";
-            toggleSelectedBlock = "gb";
-          };
-        };
+        comments.comment-nvim.enable = true;
       };
 
       # UI Enhancements
       ui = {
         borders.enable = true;
         colorizer.enable = true;
-
         illuminate.enable = true;
 
         breadcrumbs = {
@@ -404,9 +241,7 @@
           navbuddy.enable = true;
         };
 
-        noice = {
-          enable = true;
-        };
+        noice.enable = true;
 
         smartcolumn = {
           enable = true;
@@ -422,119 +257,149 @@
       # Autopairs
       autopairs.nvim-autopairs.enable = true;
 
-      # Notes (optional)
-      notes = {
-        obsidian.enable = false;
-        orgmode.enable = false;
-        mind-nvim.enable = false;
-        todo-comments.enable = true;
-      };
+      # Notes
+      notes.todo-comments.enable = true;
 
       # Projects
       projects.project-nvim = {
         enable = true;
-        manualMode = false;
-      };
-
-      # Presence (Discord - optional)
-      presence.neocord = {
-        enable = false;
+        manual.enable = false;
       };
 
       # Custom Key Mappings
-      maps = {
-        normal = {
-          # Better window navigation
-          "<C-h>" = {
-            action = "<C-w>h";
-            desc = "Navigate to left window";
-          };
-          "<C-j>" = {
-            action = "<C-w>j";
-            desc = "Navigate to bottom window";
-          };
-          "<C-k>" = {
-            action = "<C-w>k";
-            desc = "Navigate to top window";
-          };
-          "<C-l>" = {
-            action = "<C-w>l";
-            desc = "Navigate to right window";
-          };
+      keymaps = [
+        # Window Navigation
+        {
+          mode = "n";
+          key = "<C-h>";
+          action = "<C-w>h";
+          options.desc = "Navigate to left window";
+        }
+        {
+          mode = "n";
+          key = "<C-j>";
+          action = "<C-w>j";
+          options.desc = "Navigate to bottom window";
+        }
+        {
+          mode = "n";
+          key = "<C-k>";
+          action = "<C-w>k";
+          options.desc = "Navigate to top window";
+        }
+        {
+          mode = "n";
+          key = "<C-l>";
+          action = "<C-w>l";
+          options.desc = "Navigate to right window";
+        }
 
-          # Resize windows
-          "<C-Up>" = {
-            action = ":resize -2<CR>";
-            desc = "Resize window up";
-          };
-          "<C-Down>" = {
-            action = ":resize +2<CR>";
-            desc = "Resize window down";
-          };
-          "<C-Left>" = {
-            action = ":vertical resize -2<CR>";
-            desc = "Resize window left";
-          };
-          "<C-Right>" = {
-            action = ":vertical resize +2<CR>";
-            desc = "Resize window right";
-          };
+        # Resize Windows
+        {
+          mode = "n";
+          key = "<C-Up>";
+          action = ":resize -2<CR>";
+          options.desc = "Resize window up";
+        }
+        {
+          mode = "n";
+          key = "<C-Down>";
+          action = ":resize +2<CR>";
+          options.desc = "Resize window down";
+        }
+        {
+          mode = "n";
+          key = "<C-Left>";
+          action = ":vertical resize -2<CR>";
+          options.desc = "Resize window left";
+        }
+        {
+          mode = "n";
+          key = "<C-Right>";
+          action = ":vertical resize +2<CR>";
+          options.desc = "Resize window right";
+        }
 
-          # Quick save
-          "<leader>w" = {
-            action = ":w<CR>";
-            desc = "Save file";
-          };
+        # Quick Save/Quit
+        {
+          mode = "n";
+          key = "<leader>w";
+          action = ":w<CR>";
+          options.desc = "Save file";
+        }
+        {
+          mode = "n";
+          key = "<leader>q";
+          action = ":q<CR>";
+          options.desc = "Quit";
+        }
 
-          # Quick quit
-          "<leader>q" = {
-            action = ":q<CR>";
-            desc = "Quit";
-          };
+        # Clear Highlights
+        {
+          mode = "n";
+          key = "<leader>nh";
+          action = ":nohlsearch<CR>";
+          options.desc = "Clear highlights";
+        }
 
-          # Clear highlights
-          "<leader>h" = {
-            action = ":nohlsearch<CR>";
-            desc = "Clear highlights";
-          };
+        # Better Indenting (Normal)
+        {
+          mode = "n";
+          key = "<";
+          action = "<<";
+          options.desc = "Indent left";
+        }
+        {
+          mode = "n";
+          key = ">";
+          action = ">>";
+          options.desc = "Indent right";
+        }
 
-          # Better indenting
-          "<" = {
-            action = "<<";
-            desc = "Indent left";
-          };
-          ">" = {
-            action = ">>";
-            desc = "Indent right";
-          };
-        };
+        # Better Indenting (Visual)
+        {
+          mode = "v";
+          key = "<";
+          action = "<gv";
+          options.desc = "Indent left and reselect";
+        }
+        {
+          mode = "v";
+          key = ">";
+          action = ">gv";
+          options.desc = "Indent right and reselect";
+        }
 
-        visual = {
-          # Better indenting
-          "<" = {
-            action = "<gv";
-            desc = "Indent left and reselect";
-          };
-          ">" = {
-            action = ">gv";
-            desc = "Indent right and reselect";
-          };
+        # Move Text Up and Down (Visual)
+        {
+          mode = "v";
+          key = "J";
+          action = ":m '>+1<CR>gv=gv";
+          options.desc = "Move text down";
+        }
+        {
+          mode = "v";
+          key = "K";
+          action = ":m '<-2<CR>gv=gv";
+          options.desc = "Move text up";
+        }
 
-          # Move text up and down
-          "J" = {
-            action = ":m '>+1<CR>gv=gv";
-            desc = "Move text down";
-          };
-          "K" = {
-            action = ":m '<-2<CR>gv=gv";
-            desc = "Move text up";
-          };
-        };
-      };
+        # File Explorer
+        {
+          mode = "n";
+          key = "<leader>e";
+          action = ":Neotree toggle<CR>";
+          options.desc = "Toggle file explorer";
+        }
 
-      # Leader Key
-      globals.mapleader = " ";
-      globals.maplocalleader = " ";
+        # Terminal
+        {
+          mode = "n";
+          key = "<C-t>";
+          action = ":ToggleTerm<CR>";
+          options.desc = "Toggle terminal";
+        }
+      ];
     };
   };
 }
