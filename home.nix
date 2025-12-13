@@ -180,6 +180,8 @@
     };
   };
 
+  programs.nixvim.enable = true;
+
   home.file = {
     "Downloads/Wallpapers".source = ./config/wallpapers;
 

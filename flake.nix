@@ -9,8 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
+    kickstart-nixvim = {
+      url = "github:JMartJonesy/kickstart.nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -32,7 +32,7 @@
       catppuccin,
       home-manager,
       spicetify-nix,
-      nixvim,
+      kickstart-nixvim,
       ...
     }@inputs:
     {
@@ -52,10 +52,9 @@
               home-manager.users.harshs = {
                 imports = [
                   ./home.nix
-                  ./modules/theming/nixvim.nix
                   catppuccin.homeModules.catppuccin
                   inputs.spicetify-nix.homeManagerModules.default
-                  nixvim.homeModules.nixvim
+                  inputs.kickstart-nixvim.homeManagerModules.default
                 ];
               };
               home-manager.backupFileExtension = "backup";
