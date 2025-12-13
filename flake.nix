@@ -10,7 +10,7 @@
     };
 
     kickstart-nixvim = {
-      url = "github:JMartJonesy/kickstart.nixvim";
+      url = "/home/harshs/kickstart.nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
