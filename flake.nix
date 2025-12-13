@@ -27,7 +27,6 @@
       catppuccin,
       home-manager,
       spicetify-nix,
-      kickstart-nixvim,
       ...
     }@inputs:
     {
@@ -49,7 +48,6 @@
                   ./home.nix
                   catppuccin.homeModules.catppuccin
                   inputs.spicetify-nix.homeManagerModules.default
-                  inputs.kickstart-nixvim.homeManagerModules.default
                 ];
               };
               home-manager.backupFileExtension = "backup";
