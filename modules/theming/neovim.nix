@@ -226,8 +226,6 @@
         surround.enable = true;
         diffview-nvim.enable = true;
         motion.leap.enable = true;
-
-        comments.comment-nvim.enable = true;
       };
 
       # UI Enhancements
