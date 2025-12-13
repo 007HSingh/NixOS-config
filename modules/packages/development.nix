@@ -10,6 +10,9 @@
     gnumake
     gdb
 
+    # LSP
+    nil
+
     # NodeJs
     nodejs_24
 
