@@ -263,7 +263,6 @@
       # Projects
       projects.project-nvim = {
         enable = true;
-        manual.enable = false;
       };
 
       # Custom Key Mappings
