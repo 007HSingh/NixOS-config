@@ -22,7 +22,26 @@
     },
     "flake-parts": {
       "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib"
+      },
+      "locked": {
+        "lastModified": 1765495779,
+        "narHash": "sha256-MhA7wmo/7uogLxiewwRRmIax70g6q1U/YemqTGoFHlM=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "5635c32d666a59ec9a55cab87e898889869f7b71",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_2": {
+      "inputs": {
         "nixpkgs-lib": [
+          "kickstart-nixvim",
           "nixvim",
           "nixpkgs"
         ]
@@ -61,6 +80,28 @@
         "type": "github"
       }
     },
+    "kickstart-nixvim": {
+      "inputs": {
+        "flake-parts": "flake-parts",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nixvim": "nixvim"
+      },
+      "locked": {
+        "lastModified": 1761107400,
+        "narHash": "sha256-WYurMXvMkDxWc9PDt0hKZoAfoV9lVXw6vq13xN5VA/U=",
+        "owner": "JMartJonesy",
+        "repo": "kickstart.nixvim",
+        "rev": "df53a8c9456c7ae2df85ddbac33b0e9e36ad4b55",
+        "type": "github"
+      },
+      "original": {
+        "owner": "JMartJonesy",
+        "repo": "kickstart.nixvim",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1765186076,
@@ -77,10 +118,26 @@
         "type": "github"
       }
     },
+    "nixpkgs-lib": {
+      "locked": {
+        "lastModified": 1761765539,
+        "narHash": "sha256-b0yj6kfvO8ApcSE+QmA6mUfu8IYG6/uU28OFn4PaC8M=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "719359f4562934ae99f5443f20aa06c2ffff91fc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
     "nixvim": {
       "inputs": {
-        "flake-parts": "flake-parts",
+        "flake-parts": "flake-parts_2",
         "nixpkgs": [
+          "kickstart-nixvim",
           "nixpkgs"
         ],
         "systems": "systems"
@@ -103,8 +160,8 @@
       "inputs": {
         "catppuccin": "catppuccin",
         "home-manager": "home-manager",
+        "kickstart-nixvim": "kickstart-nixvim",
         "nixpkgs": "nixpkgs",
-        "nixvim": "nixvim",
         "spicetify-nix": "spicetify-nix"
       }
     },
