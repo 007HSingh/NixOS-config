@@ -9,14 +9,6 @@
     gdb
     android-tools
 
-    # Libraries
-    glibc
-    zlib
-    libx11
-    fontconfig
-    freetype
-    libGL
-
     # LSP
     nil
     nixd
