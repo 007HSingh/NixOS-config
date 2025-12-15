@@ -7,7 +7,6 @@
     gcc
     gnumake
     gdb
-    android-tools
 
     # LSP
     nil
@@ -39,8 +38,6 @@
     # Editor/IDE
     zed-editor-fhs
     antigravity-fhs
-    android-studio
-    android-studio-tools
 
     # Jupyter
     jupyter
