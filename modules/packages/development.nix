@@ -1,14 +1,13 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     # Version control
     gh
 
-    # C tools
+    # Tools
     gcc
     gnumake
     gdb
+    android-tools
 
     # LSP
     nil
