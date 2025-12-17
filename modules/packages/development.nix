@@ -39,6 +39,7 @@
     zed-editor-fhs
     antigravity-fhs
     code-cursor-fhs
+    figma-linux
 
     # Jupyter
     jupyter
