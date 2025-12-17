@@ -38,6 +38,7 @@
     # Editor/IDE
     zed-editor-fhs
     antigravity-fhs
+    code-cursor-fhs
 
     # Jupyter
     jupyter
